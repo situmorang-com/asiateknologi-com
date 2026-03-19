@@ -94,6 +94,29 @@
 <svelte:head>
 	<title>Asiateknologi - IT Consulting & System Integration</title>
 	<meta name="description" content="Enterprise IT consulting, IoT solutions, system integration, IT recruitment, and technology device management across Asia." />
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="apple-touch-icon" href="/favicon.svg" />
+
+	<!-- Open Graph / Social Media Meta Tags -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://asiateknologi.com" />
+	<meta property="og:title" content="Asiateknologi - Enterprise IT Solutions Across Asia" />
+	<meta property="og:description" content="IT Consulting, IoT Solutions, Cloud Services, Cybersecurity, Device Management & IT Recruitment for Southeast Asian enterprises." />
+	<meta property="og:image" content="https://asiateknologi.com/og-image.svg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:site_name" content="Asiateknologi" />
+
+	<!-- Twitter Card -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://asiateknologi.com" />
+	<meta property="twitter:title" content="Asiateknologi - Enterprise IT Solutions Across Asia" />
+	<meta property="twitter:description" content="IT Consulting, IoT Solutions, Cloud Services, Cybersecurity, Device Management & IT Recruitment for Southeast Asian enterprises." />
+	<meta property="twitter:image" content="https://asiateknologi.com/og-image.svg" />
+	<meta name="twitter:creator" content="@asiateknologi" />
+
 	<!-- JSON-LD: Organization structured data -->
 	{@html `<script type="application/ld+json">${JSON.stringify({
 		"@context": "https://schema.org",
