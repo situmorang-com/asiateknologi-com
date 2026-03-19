@@ -16,4 +16,12 @@ if (!fs.existsSync(dataDir)) {
 const sqlite = new Database(dbPath);
 sqlite.pragma('journal_mode = WAL');
 
+// Auto-migrate: create tables if they don't exist
+import { migrate } from './migrate';
+migrate(sqlite);
+
 export const db = drizzle(sqlite, { schema });
+
+// Auto-seed: populate data if tables are empty
+import { seed } from './seed';
+seed(db, sqlite);
