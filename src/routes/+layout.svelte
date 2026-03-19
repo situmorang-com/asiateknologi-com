@@ -3,6 +3,7 @@
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import LoadingScreen from '$lib/components/ui/LoadingScreen.svelte';
+	import WhatsAppButton from '$lib/components/ui/WhatsAppButton.svelte';
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
@@ -182,5 +183,10 @@
 			{@render children()}
 		</main>
 		<Footer />
+
+		<!-- Floating WhatsApp Contact Button (hidden on admin pages) -->
+		{#if !isAdmin}
+			<WhatsAppButton />
+		{/if}
 	</div>
 {/if}
