@@ -498,7 +498,67 @@
 </section>
 {/if}
 
-<!-- ===== 5. TESTIMONIALS ===== -->
+<!-- ===== 5. DEVICE LIFECYCLE ===== -->
+{#if data.devices.length > 0}
+<section class="relative py-24 overflow-hidden">
+	<div class="absolute inset-0 bg-gradient-to-b from-dark-950 to-dark-900"></div>
+	<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-cyan/20 to-transparent"></div>
+
+	<div class="relative mx-auto max-w-7xl px-6">
+		<!-- Header -->
+		<div class="mb-10" data-gsap="reveal">
+			<p class="mb-3 font-mono text-xs font-semibold uppercase tracking-widest text-accent-cyan">Device Lifecycle</p>
+			<h2 class="text-4xl font-bold leading-tight text-dark-50 md:text-5xl">
+				Rent or buy enterprise hardware<br class="hidden md:block" />
+				<span class="text-dark-200">with managed deployment support</span>
+			</h2>
+			<div class="mt-4 h-0.5 w-16 bg-gradient-to-r from-accent-cyan to-accent-blue"></div>
+		</div>
+
+		<!-- Scrolling rail -->
+		<div class="device-rail overflow-hidden rounded-2xl border border-dark-700/60 bg-dark-900/60">
+			<div class="device-track flex gap-3 p-3" style="width: max-content;">
+				{#each [...data.devices, ...data.devices] as device}
+					{@const specs = device.specs ? JSON.parse(device.specs) : {}}
+					{@const categoryLabel = device.category === 'network' ? 'Network Appliance' : device.category === 'laptop' ? 'Laptop' : device.category === 'desktop' ? 'Desktop' : device.category === 'bundle' ? 'Project Bundle' : device.category}
+					{@const hasRent = device.rentPriceMonthly}
+					{@const hasBuy = device.buyPrice}
+					{@const optionLabel = hasRent && hasBuy ? 'Rent / Buy' : hasRent ? 'Rent' : 'Buy'}
+					{@const priceLabel = device.rentPriceMonthly ? `from IDR ${device.rentPriceMonthly} / month` : device.buyPrice ? `from IDR ${device.buyPrice}` : 'Custom quote'}
+
+					<article class="device-card flex w-72 flex-shrink-0 flex-col gap-2 rounded-xl border border-dark-700/50 bg-gradient-to-b from-dark-800/90 to-dark-900/95 p-4">
+						<p class="font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-accent-cyan">{categoryLabel}</p>
+						<h3 class="text-base font-bold text-dark-50">{device.name}</h3>
+						{#if specs.cpu || specs.ram}
+							<small class="text-xs text-dark-300">
+								{[specs.cpu, specs.ram, specs.storage].filter(Boolean).join(', ')}
+							</small>
+						{/if}
+						<div class="mt-auto flex items-center justify-between pt-2">
+							<span class="rounded-full bg-accent-cyan/10 px-2.5 py-1 text-xs font-medium text-accent-cyan border border-accent-cyan/20">{optionLabel}</span>
+							<strong class="text-xs font-semibold text-dark-100">{priceLabel}</strong>
+						</div>
+						<em class="text-xs not-italic text-dark-400">
+							{device.availability === 'in-stock' ? 'Ready Stock' : device.availability === 'pre-order' ? 'Pre-order' : device.availability === 'custom-quote' ? 'Custom Quote' : device.availability}
+						</em>
+					</article>
+				{/each}
+			</div>
+		</div>
+
+		<!-- CTA -->
+		<div class="mt-8 flex items-center justify-between" data-gsap="reveal">
+			<p class="text-sm text-dark-400">All devices come with warranty, setup, and optional managed support.</p>
+			<a href="/services/device-rental" class="group flex items-center gap-2 text-sm font-medium text-accent-cyan hover:text-accent-blue transition-colors">
+				View full catalog
+				<svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+			</a>
+		</div>
+	</div>
+</section>
+{/if}
+
+<!-- ===== 5b. TESTIMONIALS ===== -->
 {#if data.testimonials.length > 0}
 <section class="relative py-32 overflow-hidden">
 	<div class="absolute inset-0 bg-gradient-to-b from-dark-900 to-dark-950"></div>
@@ -793,6 +853,17 @@
 	@keyframes marquee-scroll {
 		0%   { transform: translateX(0); }
 		100% { transform: translateX(-50%); }
+	}
+
+	/* Device rail infinite scroll */
+	.device-track {
+		animation: device-slide 28s linear infinite;
+	}
+	.device-rail:hover .device-track {
+		animation-play-state: paused;
+	}
+	@keyframes device-slide {
+		to { transform: translateX(-50%); }
 	}
 
 	:global(.animate-spin-slow) {

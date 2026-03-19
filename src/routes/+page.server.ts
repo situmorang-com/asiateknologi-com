@@ -1,5 +1,5 @@
 import { db } from '$lib/server/db';
-import { services, industries, testimonials, clientLogos, partners, insights, caseStudies } from '$lib/server/db/schema';
+import { services, industries, testimonials, clientLogos, partners, insights, caseStudies, devices } from '$lib/server/db/schema';
 import { eq, asc, desc } from 'drizzle-orm';
 import type { PageServerLoad } from './$types';
 
@@ -54,6 +54,13 @@ export const load: PageServerLoad = async () => {
 		.limit(3)
 		.all();
 
+	const allDevices = db
+		.select()
+		.from(devices)
+		.where(eq(devices.isActive, 1))
+		.orderBy(asc(devices.sortOrder))
+		.all();
+
 	return {
 		services: allServices,
 		industries: allIndustries,
@@ -61,6 +68,7 @@ export const load: PageServerLoad = async () => {
 		clientLogos: allClientLogos,
 		technologyPartners,
 		recentInsights,
-		featuredCaseStudies
+		featuredCaseStudies,
+		devices: allDevices
 	};
 };
