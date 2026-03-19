@@ -41,9 +41,9 @@
 			aria-label="Chat with us on WhatsApp"
 			class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-[#25D366] shadow-xl shadow-[#25D366]/30 transition-transform duration-200 hover:scale-110 active:scale-95"
 		>
-			<!-- Dual staggered pulse rings — only animate on hover -->
-			<span class="absolute inset-0 rounded-full bg-[#25D366]" style="animation: {isHovered ? 'wa-pulse 2s ease-out infinite' : 'none'};"></span>
-			<span class="absolute inset-0 rounded-full bg-[#25D366]" style="animation: {isHovered ? 'wa-pulse 2s ease-out infinite' : 'none'}; animation-delay: 0.5s;"></span>
+			<!-- Dual staggered pulse rings — always animating -->
+			<span class="absolute inset-0 rounded-full bg-[#25D366]" style="animation: wa-pulse 2s ease-out infinite;"></span>
+			<span class="absolute inset-0 rounded-full bg-[#25D366]" style="animation: wa-pulse 2s ease-out infinite; animation-delay: 0.5s;"></span>
 
 			<!-- WhatsApp icon -->
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="relative z-10 h-7 w-7">
