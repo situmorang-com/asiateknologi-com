@@ -320,7 +320,7 @@ db.insert(insights).values([
 		slug:'managed-services-vs-reactive-it',
 		excerpt:"Most mid-market companies underestimate their true IT operations cost by 40–60%. Here's how to calculate your real cost.",
 		content:`## The Break-Fix Illusion\n\nMany Indonesian enterprises believe they're saving money by managing IT reactively. The math tells a different story.\n\n## Calculating Your True IT Cost\n\n1. **Staff time**: 20 people × 2 hours/month of IT issues = Rp 38.4M/year in hidden loss\n2. **Downtime**: A 4-hour server outage = Rp 200–500M in lost productivity\n3. **Emergency premiums**: Break-fix vendors charge 2–3x for urgent calls\n4. **Security risk**: Average SEA data breach cost = $2.87M (IBM 2024)\n\n## The MSP Value Proposition\n\nA well-structured MSP typically runs Rp 15–45M/month for a 50-person company. Proactive monitoring catches 73% of incidents before they cause downtime.\n\n## When MSP Makes Sense\n\n- 0–2 IT staff for 50+ employees\n- 2+ major IT incidents in the past 12 months\n- No 24/7 coverage capability internally\n- Regulatory compliance requires documented change management`,
-		author:'Ahmad Rizki', authorRole:'Chief Executive Officer',
+		author:'Yudi Michael', authorRole:'Chief Executive Officer',
 		category:'IT Strategy', tags: JSON.stringify(['Managed Services','MSP','Cost Optimization']),
 		readTime:8, coverGradient:'from-violet-900 to-dark-950', sortOrder:3 },
 	{ title:'SCADA Modernization: From Legacy PLCs to Cloud-Connected Control',
@@ -449,7 +449,7 @@ db.insert(clientLogos).values([
 // TEAM MEMBERS
 // ══════════════════════════════════════════════════════════════════════════════
 db.insert(teamMembers).values([
-	{ name:'Ahmad Rizki', role:'Chief Executive Officer', bio:'Over 20 years in IT consulting across Southeast Asia. Ahmad founded Asiateknologi with a vision to bridge the technology gap in emerging industries.', linkedinUrl:'#', sortOrder:1 },
+	{ name:'Yudi Michael', role:'Chief Executive Officer', bio:'Over 20 years in IT consulting across Southeast Asia. Yudi founded Asiateknologi with a vision to bridge the technology gap in emerging industries.', linkedinUrl:'#', sortOrder:1 },
 	{ name:'Sarah Chen', role:'Chief Technology Officer', bio:'Former lead architect at a Fortune 500 tech company. Sarah drives our technical strategy with deep expertise in cloud-native architectures and large-scale IoT systems.', linkedinUrl:'#', sortOrder:2 },
 	{ name:'Budi Santoso', role:'Head of IoT Solutions', bio:'Specialist in industrial IoT with extensive experience deploying sensor networks in mining and manufacturing. Budi leads our advanced device implementation team.', linkedinUrl:'#', sortOrder:3 },
 	{ name:'Diana Putri', role:'Director of Recruitment', bio:'Built our recruitment division into a trusted source of IT professionals across Southeast Asia. Specializes in hard-to-fill technical roles.', linkedinUrl:'#', sortOrder:4 },
