@@ -1,6 +1,6 @@
 import { db } from '$lib/server/db';
 import { industries, services, caseStudies, insights } from '$lib/server/db/schema';
-import { eq, asc, or } from 'drizzle-orm';
+import { eq, asc } from 'drizzle-orm';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 

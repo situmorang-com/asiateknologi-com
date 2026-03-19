@@ -6,11 +6,14 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
+# Install dependencies (with development dependencies for build)
 RUN npm ci
 
 # Copy source code
 COPY . .
+
+# Create data directory for build-time database access
+RUN mkdir -p ./data
 
 # Build the app
 RUN npm run build
