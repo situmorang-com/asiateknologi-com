@@ -2,7 +2,7 @@ import Database from 'better-sqlite3';
 import { drizzle } from 'drizzle-orm/better-sqlite3';
 import {
 	services, industries, teamMembers,
-	caseStudies, insights, partners, careers, resources, testimonials, clientLogos
+	caseStudies, insights, partners, careers, resources, testimonials, clientLogos, devices
 } from '../src/lib/server/db/schema';
 
 const sqlite = new Database('./data/asiateknologi.db');
@@ -19,6 +19,28 @@ addCol('services', 'category', 'TEXT');
 addCol('industries', 'metrics', 'TEXT');
 addCol('contacts', 'budget', 'TEXT');
 addCol('contacts', 'timeline', 'TEXT');
+
+// ─── CREATE DEVICES TABLE ─────────────────────────────────────────────────────
+sqlite.exec(`
+CREATE TABLE IF NOT EXISTS devices (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name TEXT NOT NULL,
+	slug TEXT NOT NULL UNIQUE,
+	category TEXT NOT NULL,
+	description TEXT,
+	specs TEXT,
+	buy_price TEXT,
+	rent_price_monthly TEXT,
+	rent_price_daily TEXT,
+	availability TEXT,
+	stock_quantity INTEGER DEFAULT 0,
+	image TEXT,
+	features TEXT,
+	cover_gradient TEXT,
+	sort_order INTEGER DEFAULT 0,
+	is_active INTEGER DEFAULT 1,
+	created_at TEXT DEFAULT CURRENT_TIMESTAMP
+)`);
 
 // ─── CREATE NEW TABLES ────────────────────────────────────────────────────────
 sqlite.exec(`
@@ -72,7 +94,7 @@ CREATE TABLE IF NOT EXISTS client_logos (
 `);
 
 // ─── CLEAR ────────────────────────────────────────────────────────────────────
-for (const t of ['services','industries','team_members','case_studies','insights','partners','careers','resources','testimonials','client_logos']) {
+for (const t of ['services','industries','team_members','case_studies','insights','partners','careers','resources','testimonials','client_logos','devices']) {
 	sqlite.exec(`DELETE FROM ${t}`);
 }
 
@@ -455,6 +477,124 @@ db.insert(teamMembers).values([
 	{ name:'Diana Putri', role:'Director of Recruitment', bio:'Built our recruitment division into a trusted source of IT professionals across Southeast Asia. Specializes in hard-to-fill technical roles.', linkedinUrl:'#', sortOrder:4 },
 	{ name:'Michael Tan', role:'Head of Device Solutions', bio:'Expert in enterprise hardware lifecycle management with partnerships across major technology vendors.', linkedinUrl:'#', sortOrder:5 },
 	{ name:'Rina Wijaya', role:'Head of Financial Services', bio:'Certified in financial technology and banking systems. Deep understanding of regulatory compliance for Indonesian financial institutions.', linkedinUrl:'#', sortOrder:6 }
+]).run();
+
+// ══════════════════════════════════════════════════════════════════════════════
+// DEVICES (HARDWARE CATALOG WITH INDONESIAN PRICING)
+// ══════════════════════════════════════════════════════════════════════════════
+db.insert(devices).values([
+	// ─── NETWORK APPLIANCES ──────────────────────────────────────────────────
+	{ name:'Enterprise Firewall Bundle Kit', slug:'firewall-bundle-kit', category:'network',
+		description:'Managed firewall, VPN, IDS/IPS, and DDoS protection for enterprise networks. 1Gbps throughput, 500+ concurrent VPN sessions.',
+		specs: JSON.stringify({type:'Appliance', throughput:'1Gbps', vpnSessions:'500+', ports:'8x 1GbE', power:'150W', size:'2U'}),
+		features: JSON.stringify(['Next-Gen Firewall','VPN/IPSec','IDS/IPS Inspection','DDoS Protection','Advanced Threat Detection','Redundancy Support']),
+		buyPrice:'950,000,000',
+		rentPriceMonthly:'15,000,000',
+		rentPricDaily:'600,000',
+		availability:'in-stock',
+		stockQuantity:5,
+		coverGradient:'from-blue-900 to-dark-950',
+		sortOrder:1, isActive:1 },
+
+	// ─── LAPTOPS ──────────────────────────────────────────────────────────
+	{ name:'Workstation Pro 14"', slug:'workstation-pro-14', category:'laptop',
+		description:'Professional mobile workstation for content creation, 3D modeling, and data science. Core Ultra 7, 32GB RAM, RTX 5880 Ada GPU.',
+		specs: JSON.stringify({cpu:'Intel Core Ultra 7', ram:'32GB LPDDR5X', storage:'1TB NVMe SSD', gpu:'NVIDIA RTX 5880 Ada', display:'14" 4K OLED', weight:'1.8kg'}),
+		features: JSON.stringify(['Professional GPU','4K OLED Display','Thunderbolt 4','32GB RAM','ISV Certified','Battery 14hrs']),
+		buyPrice:'35,000,000',
+		rentPriceMonthly:'1,800,000',
+		rentPricDaily:'75,000',
+		availability:'in-stock',
+		stockQuantity:12,
+		coverGradient:'from-indigo-900 to-dark-950',
+		sortOrder:2, isActive:1 },
+
+	{ name:'Developer MacBook Pro 16"', slug:'developer-macbook-pro-16', category:'laptop',
+		description:'Apple M4 Max chip, ideal for full-stack developers, designers, and data scientists. 36GB unified memory, 1TB SSD.',
+		specs: JSON.stringify({cpu:'Apple M4 Max', ram:'36GB', storage:'1TB SSD', gpu:'12-core GPU', display:'16" Liquid Retina XDR', battery:'22 hours'}),
+		features: JSON.stringify(['M4 Max Chip','36GB RAM','Liquid Retina XDR','Thunderbolt 5','ProMotion 120Hz','Touch ID']),
+		buyPrice:'42,000,000',
+		rentPriceMonthly:'2,200,000',
+		rentPricDaily:'90,000',
+		availability:'in-stock',
+		stockQuantity:8,
+		coverGradient:'from-slate-900 to-dark-950',
+		sortOrder:3, isActive:1 },
+
+	{ name:'Business Ultrabook', slug:'business-ultrabook', category:'laptop',
+		description:'Lightweight business laptop for corporate users. Intel Core i7, 16GB RAM, 512GB SSD, business security.',
+		specs: JSON.stringify({cpu:'Intel Core i7-14700K', ram:'16GB DDR5', storage:'512GB NVMe', display:'15.6" FHD IPS', weight:'1.45kg', battery:'12hrs'}),
+		features: JSON.stringify(['FHD Display','16GB RAM','Intel Iris Xe','WiFi 7','Fingerprint','BIOS Lock']),
+		buyPrice:'18,000,000',
+		rentPriceMonthly:'950,000',
+		rentPricDaily:'40,000',
+		availability:'in-stock',
+		stockQuantity:20,
+		coverGradient:'from-cyan-900 to-dark-950',
+		sortOrder:4, isActive:1 },
+
+	// ─── DESKTOPS ─────────────────────────────────────────────────────────
+	{ name:'Creator Tower X', slug:'creator-tower-x', category:'desktop',
+		description:'High-performance desktop for creative professionals. AMD Ryzen 9, RTX 4090, 64GB RAM, liquid cooling.',
+		specs: JSON.stringify({cpu:'AMD Ryzen 9 9950X', ram:'64GB DDR5', storage:'2TB NVMe RAID', gpu:'RTX 4090 24GB', cooling:'360mm AIO', power:'1000W'}),
+		features: JSON.stringify(['RTX 4090 GPU','64GB RAM','Dual M.2 RAID','Liquid Cooling','WiFi 7','Thunderbolt 4']),
+		buyPrice:'180,000,000',
+		rentPriceMonthly:'8,500,000',
+		rentPricDaily:'350,000',
+		availability:'in-stock',
+		stockQuantity:4,
+		coverGradient:'from-purple-900 to-dark-950',
+		sortOrder:5, isActive:1 },
+
+	{ name:'Office PC Standard', slug:'office-pc-standard', category:'desktop',
+		description:'Reliable office desktop for productivity work. Intel Core i5, 16GB RAM, integrated graphics.',
+		specs: JSON.stringify({cpu:'Intel Core i5-13400F', ram:'16GB DDR4', storage:'512GB SSD', gpu:'Intel UHD 730', ports:'4x USB3.1', power:'250W'}),
+		features: JSON.stringify(['Core i5 Processor','16GB RAM','512GB SSD','Integrated Graphics','Office Ready','Compact Form']),
+		buyPrice:'8,500,000',
+		rentPriceMonthly:'550,000',
+		rentPricDaily:'25,000',
+		availability:'in-stock',
+		stockQuantity:25,
+		coverGradient:'from-emerald-900 to-dark-950',
+		sortOrder:6, isActive:1 },
+
+	// ─── SERVERS ──────────────────────────────────────────────────────────
+	{ name:'Rack Server 2U Enterprise', slug:'rack-server-2u', category:'server',
+		description:'Dual-socket enterprise server for virtualization and database workloads. Supports 32+ cores, 1TB+ RAM.',
+		specs: JSON.stringify({cpu:'2x Intel Xeon Platinum 8590+', ram:'1TB DDR5', storage:'20x 1.92TB NVMe', network:'4x 25GbE', power:'5000W redundant'}),
+		features: JSON.stringify(['Dual Xeon','1TB RAM Capable','NVMe RAID','Out-of-band IPMI','Redundant PSU','H-Security Support']),
+		buyPrice:'650,000,000',
+		rentPriceMonthly:'28,000,000',
+		rentPricDaily:'1,200,000',
+		availability:'custom-quote',
+		stockQuantity:0,
+		coverGradient:'from-red-900 to-dark-950',
+		sortOrder:7, isActive:1 },
+
+	// ─── BUNDLES ──────────────────────────────────────────────────────────
+	{ name:'Event Ops Bundle - 20 Seats', slug:'event-ops-bundle-20', category:'bundle',
+		description:'Complete event production package: 20x laptops, projector, audio setup, WiFi mesh, support engineer.',
+		specs: JSON.stringify({laptops:'20x Developer Ultrabooks', projector:'4K Laser', audio:'Dolby Atmos', wifi:'WiFi 6E Mesh', support:'24/7 Tech Support'}),
+		features: JSON.stringify(['20 Laptops Included','4K Projector','Wireless Audio','WiFi Mesh Network','Event Support Staff','Equipment Insurance']),
+		buyPrice:'null',
+		rentPriceMonthly:'null',
+		rentPricDaily:'12,000,000', // Per day rate for events
+		availability:'custom-quote',
+		stockQuantity:0,
+		coverGradient:'from-amber-900 to-dark-950',
+		sortOrder:8, isActive:1 },
+
+	{ name:'Smart Office Starter - 10 Seats', slug:'smart-office-starter-10', category:'bundle',
+		description:'Complete office setup for small teams: 10x office PCs, office network, managed services, 12-month support.',
+		specs: JSON.stringify({computers:'10x Office PC Standard', network:'Managed Firewall', modem:'5G Industrial', support:'12 months MSP', backup:'Daily Automated'}),
+		features: JSON.stringify(['10 Computers','Network Managed','5G Connectivity','24/7 MSP Support','Automated Backup','Phishing Protection']),
+		buyPrice:'120,000,000',
+		rentPriceMonthly:'9,500,000',
+		rentPricDaily:'null',
+		availability:'in-stock',
+		stockQuantity:3,
+		coverGradient:'from-green-900 to-dark-950',
+		sortOrder:9, isActive:1 }
 ]).run();
 
 console.log('✅ Database seeded successfully!');

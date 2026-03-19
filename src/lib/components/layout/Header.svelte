@@ -65,7 +65,8 @@
 		{ label: 'About Us', href: '/about' },
 		{ label: 'Partners', href: '/partners' },
 		{ label: 'Careers', href: '/careers' },
-		{ label: 'Resources', href: '/resources' }
+		{ label: 'Resources', href: '/resources' },
+		{ label: 'Device Catalog', href: '/devices' }
 	];
 
 	const industryIcons: Record<string, string> = {
@@ -350,7 +351,7 @@
 				onmouseleave={closeMenu}
 			>
 				<button
-					class="flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors {['/about', '/partners', '/careers', '/resources'].some(p => $page.url.pathname.startsWith(p))
+					class="flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors {['/about', '/partners', '/careers', '/resources', '/devices'].some(p => $page.url.pathname.startsWith(p))
 						? 'text-accent-cyan'
 						: 'text-dark-300 hover:text-dark-100'}"
 					aria-expanded={activeMenu === 'company'}

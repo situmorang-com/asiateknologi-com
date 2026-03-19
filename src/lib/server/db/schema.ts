@@ -171,6 +171,27 @@ export const teamMembers = sqliteTable('team_members', {
 	sortOrder: integer('sort_order').default(0)
 });
 
+// ─── DEVICES (HARDWARE CATALOG) ──────────────────────────────────────────────
+export const devices = sqliteTable('devices', {
+	id: integer('id').primaryKey({ autoIncrement: true }),
+	name: text('name').notNull(),
+	slug: text('slug').notNull().unique(),
+	category: text('category').notNull(), // 'laptop', 'desktop', 'network', 'server', 'bundle'
+	description: text('description'),
+	specs: text('specs'), // JSON: {cpu, ram, storage, gpu, etc}
+	buyPrice: text('buy_price'), // in IDR, e.g., "45,000,000"
+	rentPriceMonthly: text('rent_price_monthly'), // in IDR, e.g., "2,500,000"
+	rentPricDaily: text('rent_price_daily'), // in IDR, e.g., "100,000"
+	availability: text('availability'), // 'in-stock', 'pre-order', 'custom-quote'
+	stockQuantity: integer('stock_quantity').default(0),
+	image: text('image'),
+	features: text('features'), // JSON array
+	coverGradient: text('cover_gradient'),
+	sortOrder: integer('sort_order').default(0),
+	isActive: integer('is_active').default(1),
+	createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`)
+});
+
 // ─── ADMIN SESSIONS ──────────────────────────────────────────────────────────
 export const adminSessions = sqliteTable('admin_sessions', {
 	id: text('id').primaryKey(),
