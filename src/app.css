@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-dark-950: #0a0a0f;
+	--color-dark-900: #111118;
+	--color-dark-800: #1a1a25;
+	--color-dark-700: #252535;
+	--color-dark-600: #35354a;
+	--color-dark-500: #4a4a65;
+	--color-dark-400: #6b6b8a;
+	--color-dark-300: #9090a8;
+	--color-dark-200: #b8b8cc;
+	--color-dark-100: #e0e0eb;
+
+	--color-accent-cyan: #00e5ff;
+	--color-accent-blue: #3b82f6;
+	--color-accent-purple: #8b5cf6;
+	--color-accent-green: #10b981;
+
+	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+	--font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+@font-face {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: swap;
+	src: url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiA.woff2')
+		format('woff2');
+}
+
+@font-face {
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	font-weight: 400 700;
+	font-display: swap;
+	src: url('https://fonts.gstatic.com/s/jetbrainsmono/v21/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxTOlOTk6OThhvA.woff2')
+		format('woff2');
+}
+
+@layer base {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		background-color: var(--color-dark-950);
+		color: var(--color-dark-100);
+		font-family: var(--font-sans);
+		overflow-x: hidden;
+		/* Prevent subpixel jitter on animated children */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	/* Elements managed by GSAP get GPU layer hints */
+	[data-gsap],
+	.gsap-animated {
+		will-change: transform, opacity;
+	}
+}
+
+::selection {
+	background-color: var(--color-accent-cyan);
+	color: var(--color-dark-950);
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color-dark-900);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-dark-600);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-accent-cyan);
+}
