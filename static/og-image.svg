@@ -1,54 +1,36 @@
 <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dark background with gradient -->
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0a0a0f;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#1a1a25;stop-opacity:1" />
     </linearGradient>
-
     <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
     </linearGradient>
   </defs>
 
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
-
-  <!-- Accent bar -->
   <rect width="1200" height="8" fill="url(#accentGradient)"/>
 
-  <!-- Circuit pattern background -->
-  <g stroke="#00e5ff" stroke-width="2" fill="none" opacity="0.1">
-    <circle cx="150" cy="150" r="80"/>
-    <circle cx="1050" cy="480" r="100"/>
-    <line x1="0" y1="315" x2="1200" y2="315" stroke-dasharray="20,20"/>
-  </g>
+  <!-- Logo area -->
+  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAAA0CAYAAAA7A5FRAAAACXBIWXMAAC4jAAAuIwF4pT92AAAFgklEQVR4nO2cS27bMBCGP0l2nDhpusRJ0iRp0yYXXIDegAcU6M0H8Ap9Aa/QK/gKHoH3oD0Ar9ALFLgBL9ArgA3QAwpkhxRJiqTkcTzb+b9BHkqUqO9n5s5Qo9FoNBqNRqPRaDQajUaj0Wg0Go1Go9FoNBqNRqPRaDQajUaj0Wg0/nxqtRoA4O/vDwBQqVRAkqQBAA6Hg39+fHzgnx8eHvDz8wMA+PX1xT83mUwAAEajER8fH3h/fwcA/Pr6wvv7O4rFIgBgPp/j8/OTD8zlcgEAFhYWUKvV+JDL5TLGYzEmkwm/J5fLAQBKpRLu7+/5EI7Hg+12i36/D8Dy+uv1Gj8/PzyfnZ0h13U5J/P5HM1mE4PBAC6Xi6OzSqWC0+nEd3q9HhqNBq6vrwEAu90OjUYDi8UCdrsdvt/vAIClpSWMx2N0u118fn7yXf39/eH29hYA8PX1BZ/Ph+12i9vbWwDAy8sLer0eiuUyGo0G5vM5yuUyLpYWcDw/h2fzARoNz7PZrORBR+PxGJeXlxgOh5hMJpJPeX9/x9vbGwBgOByiWCxid3eX88sFLx8fAIBerwfDMLC1tcVJGI7DQXkcx8F6vcbNzQ0AoFAoYGNjg98BQLPZxN7eHuczCAT4fZGJ5YnkkdVqhV6vJ+0ZrtfrBX3KcrlErVbD3t4eXl9f+WHX1zfX43lfJ8hQH8IWxXXdBAiPx4PtdosBG0cTCIRhGBiNRlhYWJAO+PT05EQCKpUK4vE4Op0OGo2GdMZzuVyiUCjwu3q9XlyV8Nj7+xvn87+n29tbfHx8YHt7my9nMplQq9UkDyUe7/f7vz2UxWIBj8fz22MAM5vNZH2KK2E2m/HVxWKRr7ZYLOD1ehGJRPh5tVrF1dUVP6FIJIJwOIzZbMYFLxQKqNfr/N+ZTEZaFvN4PIiHw/A8zxe7fLHtdkt0u11RKpVEMpmU4/H4r18CXS6X0u12xXQ6FZlMRs7nc1GpVESpVBKZTEYkk0nhdrulj2UymRSZTEY0m03RarWk7xeVjDhYoVBQQohEIoJhGIbleTz/Qj6fl/P5/NYpuVxO7OzsqJbz+Tzi8TiMxiNs20atVpPl9PT0IJ7DwwM8Ho8yAWJvb0/qiXc6HZ4SANxuN9bX18WvdQTDbrcL27bx8PBQUT2cTic2Nxf5VdRwOJRGU1ZXV1Wp0mg0sLo6SzS63S7m8zkOh4Nqw/z8PH5+foRhmFhYWFCpRiaT0fqElcrlMkajEeJxVzvJ2NgQo9FIzudzCYVCImhZFgsCAhK3JNMJ6A+yUCAx0EJzBzX5RELBwKEz8qNYNrv+IqQj1D/rR1yFEXZ2dpTL7BYXF5XLPBvQXDfxQh+x/KqMBoC5fD4vl+MVVa9R7dKh1WhLlI3GVNjU1BR2dnaU+rFWq1VpPC8vLzAejyuXeaGJ0+mENBj79PT0dxXMzMyoQzYajRCNRpXLPBvQXLq60m6349LSEk6nkyqZb25u+EdZpRqVZVmU1GuAqVU1BQqfh2sURf6bvBFMU0OBMwAKLjNqr7oWkSFNgTIAokGjGRhSYAygdJkVGNIUKAMgEihAECjSFCgDIBIojhhQpClQBkAkUBywogKTNAXKAIgEigMGVGkKlAEQCRQHDKjSFCgDIBIoDhhQpSlQBkAkUNxgcfCVl7X6YH9/X12u+n4fz89P/AVWc5IHXA7MRbMfEVKljIHPaRxwrJ2BYcYgyzI8Ho+IxWLXfsjRj1FRsNKRFPKn2qG2nFYajY5GozHf+A/h8r+6t6J0jQAAAABJRU5ErkJggg==" x="50" y="50" width="120" height="120"/>
 
-  <!-- Main content -->
-  <text x="100" y="200" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="700" fill="#e0e0eb">
+  <!-- Text content -->
+  <text x="200" y="130" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700" fill="#e0e0eb">
     Asiateknologi
   </text>
 
-  <text x="100" y="280" font-family="Inter, system-ui, sans-serif" font-size="40" fill="#00e5ff">
+  <text x="200" y="200" font-family="Inter, system-ui, sans-serif" font-size="36" fill="#a78bfa">
     Enterprise IT Solutions
   </text>
 
-  <text x="100" y="340" font-family="Inter, system-ui, sans-serif" font-size="28" fill="#b8b8cc">
+  <text x="200" y="260" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#b8b8cc">
     Consulting • IoT • Cloud • Security • Recruitment
   </text>
 
-  <!-- Tagline -->
-  <text x="100" y="450" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#9090a8">
-    Bridging technology gaps across Southeast Asia
-  </text>
-
-  <!-- Website URL -->
-  <text x="100" y="560" font-family="'Courier New', monospace" font-size="20" fill="#6b6b8a">
-    asiateknologi.com
-  </text>
-
   <!-- Decorative elements -->
-  <circle cx="1100" cy="100" r="6" fill="#00e5ff"/>
-  <circle cx="1130" cy="130" r="4" fill="#3b82f6"/>
-  <circle cx="1150" cy="170" r="5" fill="#00e5ff"/>
+  <circle cx="1050" cy="100" r="6" fill="#a78bfa"/>
+  <circle cx="1090" cy="130" r="4" fill="#8b5cf6"/>
+  <circle cx="1110" cy="170" r="5" fill="#a78bfa"/>
 </svg>

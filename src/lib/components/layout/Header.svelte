@@ -144,7 +144,11 @@
 				<div
 					class="h-8 w-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-blue flex items-center justify-center text-dark-950 font-bold text-sm"
 				>
-					AT
+					<img
+					src="/logo.png"
+					alt="Asiateknologi"
+					class="h-6 w-auto"
+				/>
 				</div>
 				<div
 					class="absolute inset-0 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-blue opacity-0 blur-lg transition-opacity group-hover:opacity-50"
