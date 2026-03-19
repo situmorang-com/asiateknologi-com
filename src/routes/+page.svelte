@@ -9,6 +9,7 @@
 	import { textScramble } from '$lib/animations/actions/textScramble';
 	import { magneticCursor } from '$lib/animations/actions/magneticCursor';
 	import { parallax } from '$lib/animations/actions/parallax';
+	import PartnerLogo from '$lib/components/ui/PartnerLogo.svelte';
 
 	let { data } = $props();
 
@@ -737,16 +738,10 @@
 			</a>
 		</div>
 
-		<div class="flex flex-wrap justify-center gap-3">
+		<div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
 			{#each data.technologyPartners as partner, i}
-				<div
-					class="rounded-xl border px-5 py-3 font-mono text-sm font-semibold transition-all duration-200 hover:scale-105 {getTierClass(partner.tier)}"
-					use:scrollReveal={{ delay: i * 0.07 }}
-				>
-					{partner.name}
-					{#if partner.tier}
-						<span class="ml-2 text-[10px] font-normal opacity-60 capitalize">{partner.tier}</span>
-					{/if}
+				<div use:scrollReveal={{ delay: i * 0.07 }}>
+					<PartnerLogo name={partner.name} tier={partner.tier} />
 				</div>
 			{/each}
 		</div>
