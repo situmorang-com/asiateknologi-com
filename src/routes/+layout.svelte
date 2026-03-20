@@ -97,8 +97,10 @@
 	<meta name="description" content="Enterprise IT consulting, IoT solutions, system integration, IT recruitment, and technology device management across Asia." />
 
 	<!-- Favicon -->
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<link rel="apple-touch-icon" href="/favicon.svg" />
+	<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+	<link rel="apple-touch-icon" sizes="512x512" href="/favicon.png" />
 
 	<!-- Open Graph / Social Media Meta Tags -->
 	<meta property="og:type" content="website" />

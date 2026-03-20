@@ -139,24 +139,12 @@
 >
 	<nav class="mx-auto flex max-w-7xl items-center justify-between px-6" role="navigation" aria-label="Main navigation">
 		<!-- Logo -->
-		<a href="/" class="group flex items-center gap-2" onclick={closeMobile}>
-			<div class="relative">
-				<div
-					class="h-8 w-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-blue flex items-center justify-center text-dark-950 font-bold text-sm"
-				>
-					<img
-					src="/logo.png"
-					alt="Asiateknologi"
-					class="h-6 w-auto"
-				/>
-				</div>
-				<div
-					class="absolute inset-0 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-blue opacity-0 blur-lg transition-opacity group-hover:opacity-50"
-				></div>
-			</div>
-			<span class="font-mono text-lg font-semibold tracking-tight">
-				<span class="text-accent-cyan">Asia</span><span class="text-dark-100">teknologi</span>
-			</span>
+		<a href="/" class="group flex items-center" onclick={closeMobile}>
+			<img
+				src="/logo.png"
+				alt="Asiateknologi"
+				class="h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-80"
+			/>
 		</a>
 
 		<!-- Desktop nav -->
