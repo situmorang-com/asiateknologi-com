@@ -144,6 +144,7 @@
 				src="/logo.png"
 				alt="Asiateknologi"
 				class="h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-80"
+				style="filter: brightness(0) invert(1);"
 			/>
 		</a>
 

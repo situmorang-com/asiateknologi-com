@@ -53,15 +53,13 @@
 		<div class="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
 			<!-- Brand — spans 2 cols on lg -->
 			<div class="lg:col-span-2">
-				<a href="/" class="flex items-center gap-2">
-					<div
-						class="h-8 w-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-blue flex items-center justify-center text-dark-950 font-bold text-sm"
-					>
-						AT
-					</div>
-					<span class="font-mono text-lg font-semibold">
-						<span class="text-accent-cyan">Asia</span><span class="text-dark-100">teknologi</span>
-					</span>
+				<a href="/" class="inline-block">
+					<img
+						src="/logo.png"
+						alt="Asiateknologi"
+						class="h-10 w-auto object-contain"
+						style="filter: brightness(0) invert(1);"
+					/>
 				</a>
 				<p class="mt-4 text-sm leading-relaxed text-dark-400">
 					Bridging technology and industry across Asia. IT consulting, IoT solutions, recruitment,
