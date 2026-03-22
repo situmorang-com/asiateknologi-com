@@ -1,3 +1,18 @@
-# allow crawling everything by default
+# Allow all crawlers
 User-agent: *
-Disallow:
+Disallow: /admin/
+
+# Explicitly allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+Sitemap: https://asiateknologi.com/sitemap.xml

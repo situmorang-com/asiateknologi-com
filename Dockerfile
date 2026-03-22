@@ -36,7 +36,9 @@ RUN mkdir -p /app/data && chmod 755 /app/data
 
 # Set environment
 ENV NODE_ENV=production
-ENV ORIGIN=http://localhost:3000
+# IMPORTANT: Override ORIGIN in Coolify env vars to match your domain
+# e.g. ORIGIN=https://asiateknologi.com
+ENV ORIGIN=https://asiateknologi.com
 
 # Expose port
 EXPOSE 3000
