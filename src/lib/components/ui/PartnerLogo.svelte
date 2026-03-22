@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { name, tier }: { name: string; tier?: string | null } = $props();
+	let { name, tier, description, url }: { name: string; tier?: string | null; description?: string | null; url?: string | null } = $props();
 
 	const brands: Record<string, { file: string; color: string }> = {
 		'Amazon Web Services':        { file: 'aws.svg',               color: '#FF9900' },
@@ -30,37 +30,53 @@
 </script>
 
 <div
-	class="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-dark-700/50 bg-dark-900/80 px-5 py-5 transition-all duration-300 hover:scale-105 hover:border-dark-600 hover:bg-dark-800/80"
+	class="group flex flex-col gap-3 rounded-2xl border border-dark-700/50 bg-dark-900/80 px-5 py-5 transition-all duration-300 hover:border-dark-600 hover:bg-dark-800/80 {description ? 'items-start' : 'items-center justify-center hover:scale-105'}"
 	style="border-top: 2px solid {brand?.color ?? '#333'}40;"
 >
-	<!-- Logo image -->
-	<div class="flex h-10 items-center justify-center">
-		{#if brand}
-			<img
-				src="/partners/{brand.file}"
-				alt="{name} logo"
-				class="h-8 w-auto max-w-[80px] object-contain transition-all duration-300"
-				style="filter: brightness(0) saturate(100%) invert(1); opacity: 0.75;"
-				onmouseover={(e) => (e.currentTarget as HTMLImageElement).style.opacity = '1'}
-				onmouseout={(e) => (e.currentTarget as HTMLImageElement).style.opacity = '0.75'}
-			/>
-		{:else}
-			<div class="flex h-8 w-8 items-center justify-center rounded-full bg-dark-700 text-sm font-bold text-dark-300">
-				{name.charAt(0)}
-			</div>
+	<!-- Logo image + tier row -->
+	<div class="flex w-full items-center {description ? 'justify-between' : 'justify-center'}">
+		<div class="flex h-10 items-center">
+			{#if brand}
+				<img
+					src="/partners/{brand.file}"
+					alt="{name} logo"
+					class="h-8 w-auto max-w-[80px] object-contain transition-all duration-300"
+					style="filter: brightness(0) saturate(100%) invert(1); opacity: 0.75;"
+				/>
+			{:else}
+				<div class="flex h-8 w-8 items-center justify-center rounded-full bg-dark-700 text-sm font-bold text-dark-300">
+					{name.charAt(0)}
+				</div>
+			{/if}
+		</div>
+		{#if tier && tierColor}
+			<span
+				class="rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider"
+				style="background: {tierColor}20; color: {tierColor};"
+			>
+				{tier}
+			</span>
 		{/if}
 	</div>
 
 	<!-- Name -->
-	<span class="text-center text-xs font-medium leading-tight text-dark-300">{name}</span>
+	<span class="text-center text-sm font-semibold text-dark-200 {description ? 'text-left' : 'text-center text-xs'}">{name}</span>
 
-	<!-- Tier badge -->
-	{#if tier && tierColor}
-		<span
-			class="rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider"
-			style="background: {tierColor}20; color: {tierColor};"
+	<!-- Description (only on full partner cards) -->
+	{#if description}
+		<p class="text-xs leading-relaxed text-dark-400 line-clamp-3">{description}</p>
+	{/if}
+
+	<!-- Link -->
+	{#if url}
+		<a
+			href={url}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="mt-auto inline-flex items-center gap-1 font-mono text-xs text-dark-400 transition-colors hover:text-accent-cyan"
 		>
-			{tier}
-		</span>
+			Learn more
+			<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+		</a>
 	{/if}
 </div>

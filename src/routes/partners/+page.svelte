@@ -1,6 +1,7 @@
 <script lang="ts">
 	import SectionHeading from '$lib/components/ui/SectionHeading.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
+	import PartnerLogo from '$lib/components/ui/PartnerLogo.svelte';
 	import { scrollReveal } from '$lib/animations/actions/scrollReveal';
 	import { textScramble } from '$lib/animations/actions/textScramble';
 	import { tiltCard } from '$lib/animations/actions/tiltCard';
@@ -142,80 +143,8 @@
 
 			<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 				{#each data.technologyPartners as partner, i}
-					<div
-						class="group relative overflow-hidden rounded-2xl border border-dark-700/50 bg-dark-950/80 p-6 transition-all duration-300 hover:border-accent-cyan/30 hover:bg-dark-800/60 hover:shadow-lg hover:shadow-accent-cyan/5"
-						use:tiltCard={{ maxTilt: 5 }}
-						use:scrollReveal={{ delay: i * 0.07 }}
-					>
-						<!-- Subtle inner glow on hover -->
-						<div
-							class="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-cyan/0 to-accent-blue/0 opacity-0 transition-opacity duration-500 group-hover:from-accent-cyan/5 group-hover:to-accent-blue/5 group-hover:opacity-100"
-						></div>
-
-						<div class="relative flex flex-col gap-4">
-							<!-- Logo / Name -->
-							<div class="flex items-start justify-between">
-								<div class="flex-1">
-									{#if partner.logoSvg}
-										<div class="mb-3 h-10 w-auto text-dark-100 opacity-80 transition-opacity group-hover:opacity-100">
-											{@html partner.logoSvg}
-										</div>
-									{:else}
-										<div
-											class="inline-flex items-center justify-center rounded-xl bg-gradient-to-br from-dark-700 to-dark-800 px-4 py-2.5"
-										>
-											<span
-												class="font-mono text-sm font-bold tracking-wider text-dark-200 group-hover:text-accent-cyan transition-colors"
-											>
-												{partner.name}
-											</span>
-										</div>
-									{/if}
-								</div>
-
-								{#if partner.tier}
-									<span
-										class="ml-2 shrink-0 rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider {getTierClass(partner.tier)}"
-									>
-										{partner.tier}
-									</span>
-								{/if}
-							</div>
-
-							{#if !partner.logoSvg}
-								<h3 class="text-base font-semibold text-dark-100 group-hover:text-dark-50 transition-colors">
-									{partner.name}
-								</h3>
-							{/if}
-
-							{#if partner.description}
-								<p class="text-sm leading-relaxed text-dark-400 line-clamp-3">
-									{partner.description}
-								</p>
-							{/if}
-
-							{#if partner.url}
-								<a
-									href={partner.url}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="mt-1 inline-flex items-center gap-1.5 font-mono text-xs text-dark-400 transition-colors hover:text-accent-cyan"
-								>
-									Learn more
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="12"
-										height="12"
-										viewBox="0 0 24 24"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-									>
-										<path d="M7 7h10v10" /><path d="M7 17 17 7" />
-									</svg>
-								</a>
-							{/if}
-						</div>
+					<div use:tiltCard={{ maxTilt: 5 }} use:scrollReveal={{ delay: i * 0.07 }}>
+						<PartnerLogo name={partner.name} tier={partner.tier} description={partner.description} url={partner.url} />
 					</div>
 				{/each}
 			</div>
