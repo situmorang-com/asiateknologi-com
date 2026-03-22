@@ -11,6 +11,7 @@
 	import { magneticCursor } from '$lib/animations/actions/magneticCursor';
 	import { parallax } from '$lib/animations/actions/parallax';
 	import PartnerLogo from '$lib/components/ui/PartnerLogo.svelte';
+	import AiParticles from '$lib/components/ui/AiParticles.svelte';
 
 	let { data } = $props();
 
@@ -410,11 +411,22 @@
 
 <!-- ===== AI & DATA SCIENCE ===== -->
 <section class="relative overflow-hidden bg-dark-950 py-32">
-	<!-- Background grid -->
-	<div class="absolute inset-0 opacity-[0.025]" style="background-image: radial-gradient(circle at 1px 1px, rgba(0,229,255,0.8) 1px, transparent 0); background-size: 32px 32px;"></div>
-	<!-- Glow orbs -->
-	<div class="absolute -left-40 top-1/4 h-96 w-96 rounded-full bg-accent-purple/10 blur-3xl pointer-events-none"></div>
-	<div class="absolute -right-40 bottom-1/4 h-96 w-96 rounded-full bg-accent-cyan/8 blur-3xl pointer-events-none"></div>
+	<!-- Aurora gradient blobs -->
+	<div class="pointer-events-none absolute inset-0 overflow-hidden">
+		<div class="aurora-blob-1 absolute -left-32 top-1/4 h-[500px] w-[500px] rounded-full opacity-30 blur-[120px]"
+			style="background: radial-gradient(circle, rgba(139,92,246,0.5), transparent 70%);"></div>
+		<div class="aurora-blob-2 absolute -right-20 top-1/3 h-[400px] w-[400px] rounded-full opacity-25 blur-[100px]"
+			style="background: radial-gradient(circle, rgba(0,229,255,0.4), transparent 70%);"></div>
+		<div class="aurora-blob-3 absolute bottom-0 left-1/3 h-[350px] w-[450px] rounded-full opacity-20 blur-[100px]"
+			style="background: radial-gradient(circle, rgba(59,130,246,0.5), transparent 70%);"></div>
+	</div>
+
+	<!-- Interactive particle network canvas -->
+	{#if browser}
+		<AiParticles />
+	{/if}
+
+	<!-- Separator lines -->
 	<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-purple/40 to-transparent"></div>
 	<div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent-cyan/30 to-transparent"></div>
 
@@ -441,138 +453,36 @@
 				</div>
 			</div>
 
-			<!-- Animated neural network visualization -->
-			<div class="nn-float flex items-center justify-center">
-				<svg viewBox="0 0 440 410" class="w-full max-w-lg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<defs>
-						<!-- Glow filters -->
-						<filter id="nn-glow-c" x="-60%" y="-60%" width="220%" height="220%">
-							<feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/>
-							<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-						</filter>
-						<filter id="nn-glow-p" x="-60%" y="-60%" width="220%" height="220%">
-							<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
-							<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-						</filter>
-						<!-- Inbound paths: node → hub -->
-						<path id="nn-in0" d="M 220,55  L 220,200"/>
-						<path id="nn-in1" d="M 346,128 L 220,200"/>
-						<path id="nn-in2" d="M 346,272 L 220,200"/>
-						<path id="nn-in3" d="M 220,345 L 220,200"/>
-						<path id="nn-in4" d="M  94,272 L 220,200"/>
-						<path id="nn-in5" d="M  94,128 L 220,200"/>
-						<!-- Outbound paths: hub → node -->
-						<path id="nn-out0" d="M 220,200 L 220,55"/>
-						<path id="nn-out3" d="M 220,200 L 220,345"/>
-						<path id="nn-out1" d="M 220,200 L 346,128"/>
-						<path id="nn-out4" d="M 220,200 L  94,272"/>
-					</defs>
-
-					<!-- Outer hex ring (very subtle) -->
-					<polygon points="220,55 346,128 346,272 220,345 94,272 94,128"
-						fill="none" stroke="rgba(139,92,246,0.10)" stroke-width="1" stroke-dasharray="4 7"/>
-
-					<!-- Spoke lines hub ↔ nodes (animated dashes) -->
-					<line x1="220" y1="55"  x2="220" y2="200" stroke="rgba(0,229,255,0.22)" stroke-width="1.5" stroke-dasharray="6 5" class="nn-spoke" style="animation-delay:0s"/>
-					<line x1="346" y1="128" x2="220" y2="200" stroke="rgba(0,229,255,0.22)" stroke-width="1.5" stroke-dasharray="6 5" class="nn-spoke" style="animation-delay:0.27s"/>
-					<line x1="346" y1="272" x2="220" y2="200" stroke="rgba(0,229,255,0.22)" stroke-width="1.5" stroke-dasharray="6 5" class="nn-spoke" style="animation-delay:0.53s"/>
-					<line x1="220" y1="345" x2="220" y2="200" stroke="rgba(0,229,255,0.22)" stroke-width="1.5" stroke-dasharray="6 5" class="nn-spoke" style="animation-delay:0.8s"/>
-					<line x1=" 94" y1="272" x2="220" y2="200" stroke="rgba(0,229,255,0.22)" stroke-width="1.5" stroke-dasharray="6 5" class="nn-spoke" style="animation-delay:1.07s"/>
-					<line x1=" 94" y1="128" x2="220" y2="200" stroke="rgba(0,229,255,0.22)" stroke-width="1.5" stroke-dasharray="6 5" class="nn-spoke" style="animation-delay:1.33s"/>
-
-					<!-- Inbound data packets (cyan): node → hub -->
-					<circle r="3.5" fill="#00e5ff" filter="url(#nn-glow-c)">
-						<animateMotion dur="2s"   repeatCount="indefinite" begin="0s">   <mpath href="#nn-in0"/></animateMotion>
-					</circle>
-					<circle r="3.5" fill="#00e5ff" filter="url(#nn-glow-c)">
-						<animateMotion dur="2.2s" repeatCount="indefinite" begin="0.5s"> <mpath href="#nn-in1"/></animateMotion>
-					</circle>
-					<circle r="3.5" fill="#00e5ff" filter="url(#nn-glow-c)">
-						<animateMotion dur="1.9s" repeatCount="indefinite" begin="1s">   <mpath href="#nn-in2"/></animateMotion>
-					</circle>
-					<circle r="3.5" fill="#00e5ff" filter="url(#nn-glow-c)">
-						<animateMotion dur="2.1s" repeatCount="indefinite" begin="1.5s"> <mpath href="#nn-in3"/></animateMotion>
-					</circle>
-					<circle r="3.5" fill="#00e5ff" filter="url(#nn-glow-c)">
-						<animateMotion dur="2.3s" repeatCount="indefinite" begin="0.3s"> <mpath href="#nn-in4"/></animateMotion>
-					</circle>
-					<circle r="3.5" fill="#00e5ff" filter="url(#nn-glow-c)">
-						<animateMotion dur="2s"   repeatCount="indefinite" begin="0.8s"> <mpath href="#nn-in5"/></animateMotion>
-					</circle>
-
-					<!-- Outbound data packets (purple): hub → node -->
-					<circle r="3" fill="#8b5cf6" filter="url(#nn-glow-p)">
-						<animateMotion dur="1.8s" repeatCount="indefinite" begin="1.1s"> <mpath href="#nn-out0"/></animateMotion>
-					</circle>
-					<circle r="3" fill="#8b5cf6" filter="url(#nn-glow-p)">
-						<animateMotion dur="2s"   repeatCount="indefinite" begin="1.8s"> <mpath href="#nn-out3"/></animateMotion>
-					</circle>
-					<circle r="3" fill="#8b5cf6" filter="url(#nn-glow-p)">
-						<animateMotion dur="1.9s" repeatCount="indefinite" begin="0.6s"> <mpath href="#nn-out1"/></animateMotion>
-					</circle>
-					<circle r="3" fill="#8b5cf6" filter="url(#nn-glow-p)">
-						<animateMotion dur="2.1s" repeatCount="indefinite" begin="1.4s"> <mpath href="#nn-out4"/></animateMotion>
-					</circle>
-
-					<!-- Hub: pulse ring -->
-					<circle cx="220" cy="200" r="38" fill="none" stroke="rgba(0,229,255,0.35)" stroke-width="1" class="nn-hub-ring"/>
-					<!-- Hub: solid circle -->
-					<circle cx="220" cy="200" r="32" fill="rgba(0,5,15,0.92)" stroke="rgba(0,229,255,0.65)" stroke-width="1.5" filter="url(#nn-glow-c)"/>
-					<!-- Hub: spinning star icon -->
-					<path class="nn-hub-star" d="M220,190 L222.5,197.5 L230,200 L222.5,202.5 L220,210 L217.5,202.5 L210,200 L217.5,197.5 Z"
-						fill="rgba(0,229,255,0.95)"/>
-					<!-- Hub: label -->
-					<text x="220" y="222" text-anchor="middle" fill="rgba(0,229,255,0.5)" font-size="7.5" font-family="monospace" font-weight="700" letter-spacing="1">DATA HUB</text>
-
-					<!-- Node 0: Machine Learning (top) -->
-					<circle cx="220" cy="55" r="26" fill="rgba(5,0,15,0.92)" stroke="rgba(139,92,246,0.65)" stroke-width="1.5" filter="url(#nn-glow-p)" class="nn-node" style="animation-delay:0s"/>
-					<path d="M213,51 a7,7 0 1,1 14,0" fill="none" stroke="rgba(139,92,246,0.9)" stroke-width="1.5" stroke-linecap="round"/>
-					<circle cx="208" cy="58" r="3" fill="none" stroke="rgba(139,92,246,0.9)" stroke-width="1.3"/>
-					<circle cx="220" cy="58" r="3" fill="none" stroke="rgba(139,92,246,0.9)" stroke-width="1.3"/>
-					<circle cx="232" cy="58" r="3" fill="none" stroke="rgba(139,92,246,0.9)" stroke-width="1.3"/>
-					<line x1="211" y1="58" x2="208" y2="58" stroke="rgba(139,92,246,0.7)" stroke-width="1"/>
-					<line x1="217" y1="58" x2="223" y2="58" stroke="rgba(139,92,246,0.7)" stroke-width="1"/>
-					<line x1="229" y1="58" x2="232" y2="58" stroke="rgba(139,92,246,0.7)" stroke-width="1"/>
-					<text x="220" y="91" text-anchor="middle" fill="rgba(180,175,220,0.85)" font-size="8" font-family="monospace" font-weight="700">MACHINE LEARNING</text>
-
-					<!-- Node 1: Data Warehousing (top-right) -->
-					<circle cx="346" cy="128" r="26" fill="rgba(5,0,15,0.92)" stroke="rgba(59,130,246,0.65)" stroke-width="1.5" class="nn-node" style="animation-delay:0.4s"/>
-					<rect x="337" y="120" width="18" height="16" rx="1" fill="none" stroke="rgba(59,130,246,0.9)" stroke-width="1.3"/>
-					<line x1="337" y1="125" x2="355" y2="125" stroke="rgba(59,130,246,0.7)" stroke-width="1"/>
-					<line x1="343" y1="120" x2="343" y2="136" stroke="rgba(59,130,246,0.7)" stroke-width="1"/>
-					<line x1="349" y1="120" x2="349" y2="136" stroke="rgba(59,130,246,0.7)" stroke-width="1"/>
-					<text x="346" y="164" text-anchor="middle" fill="rgba(180,175,220,0.85)" font-size="8" font-family="monospace" font-weight="700">DATA WAREHOUSE</text>
-
-					<!-- Node 2: Real-time Streaming (bottom-right) -->
-					<circle cx="346" cy="272" r="26" fill="rgba(5,0,15,0.92)" stroke="rgba(0,229,255,0.65)" stroke-width="1.5" class="nn-node" style="animation-delay:0.8s"/>
-					<polyline points="334,272 337,265 340,279 343,263 346,272 349,265 352,279 355,272 358,272" fill="none" stroke="rgba(0,229,255,0.9)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
-					<text x="346" y="308" text-anchor="middle" fill="rgba(180,175,220,0.85)" font-size="8" font-family="monospace" font-weight="700">REAL-TIME STREAM</text>
-
-					<!-- Node 3: BI & Dashboards (bottom) -->
-					<circle cx="220" cy="345" r="26" fill="rgba(5,0,15,0.92)" stroke="rgba(16,185,129,0.65)" stroke-width="1.5" class="nn-node" style="animation-delay:1.2s"/>
-					<line x1="212" y1="353" x2="212" y2="343" stroke="rgba(16,185,129,0.9)" stroke-width="2.5" stroke-linecap="round"/>
-					<line x1="219" y1="353" x2="219" y2="337" stroke="rgba(16,185,129,0.9)" stroke-width="2.5" stroke-linecap="round"/>
-					<line x1="226" y1="353" x2="226" y2="345" stroke="rgba(16,185,129,0.9)" stroke-width="2.5" stroke-linecap="round"/>
-					<line x1="233" y1="353" x2="233" y2="340" stroke="rgba(16,185,129,0.9)" stroke-width="2.5" stroke-linecap="round"/>
-					<line x1="210" y1="353" x2="235" y2="353" stroke="rgba(16,185,129,0.5)" stroke-width="1"/>
-					<text x="220" y="381" text-anchor="middle" fill="rgba(180,175,220,0.85)" font-size="8" font-family="monospace" font-weight="700">BI &amp; DASHBOARDS</text>
-
-					<!-- Node 4: Data Engineering (bottom-left) -->
-					<circle cx="94" cy="272" r="26" fill="rgba(5,0,15,0.92)" stroke="rgba(139,92,246,0.65)" stroke-width="1.5" class="nn-node" style="animation-delay:1.6s"/>
-					<ellipse cx="94" cy="264" rx="10" ry="3.5" fill="none" stroke="rgba(139,92,246,0.9)" stroke-width="1.3"/>
-					<line x1="84" y1="264" x2="84" y2="277" stroke="rgba(139,92,246,0.9)" stroke-width="1.3"/>
-					<line x1="104" y1="264" x2="104" y2="277" stroke="rgba(139,92,246,0.9)" stroke-width="1.3"/>
-					<ellipse cx="94" cy="270" rx="10" ry="3.5" fill="none" stroke="rgba(139,92,246,0.6)" stroke-width="1"/>
-					<ellipse cx="94" cy="277" rx="10" ry="3.5" fill="none" stroke="rgba(139,92,246,0.9)" stroke-width="1.3"/>
-					<text x="94" y="308" text-anchor="middle" fill="rgba(180,175,220,0.85)" font-size="8" font-family="monospace" font-weight="700">DATA ENGINEERING</text>
-
-					<!-- Node 5: Generative AI (top-left) -->
-					<circle cx="94" cy="128" r="26" fill="rgba(5,0,15,0.92)" stroke="rgba(59,130,246,0.65)" stroke-width="1.5" class="nn-node" style="animation-delay:2s"/>
-					<path d="M94,118 L96,125 L103,128 L96,131 L94,138 L92,131 L85,128 L92,125 Z" fill="none" stroke="rgba(59,130,246,0.9)" stroke-width="1.3" stroke-linejoin="round"/>
-					<circle cx="102" cy="120" r="2" fill="rgba(59,130,246,0.7)"/>
-					<circle cx="86" cy="136" r="1.5" fill="rgba(59,130,246,0.5)"/>
-					<text x="94" y="164" text-anchor="middle" fill="rgba(180,175,220,0.85)" font-size="8" font-family="monospace" font-weight="700">GENERATIVE AI</text>
-				</svg>
+			<!-- Glassmorphic capability cards -->
+			<div class="grid grid-cols-2 gap-4">
+				{#each [
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 1 0 5 5"/><circle cx="12" cy="7" r="5"/><path d="M2 22c0-5.523 4.477-10 10-10s10 4.477 10 10"/><circle cx="18" cy="8" r="3"/></svg>`, label: 'Machine Learning', color: '#8b5cf6' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M15 3v18"/></svg>`, label: 'Data Warehousing', color: '#3b82f6' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`, label: 'Real-time Streaming', color: '#00e5ff' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>`, label: 'BI & Dashboards', color: '#10b981' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>`, label: 'Data Engineering', color: '#8b5cf6' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.96-4.03A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.96-4.03A2.5 2.5 0 0 0 14.5 2Z"/></svg>`, label: 'Generative AI', color: '#3b82f6' },
+				] as cap, i}
+					<div
+						class="group relative overflow-hidden rounded-2xl border border-white/[0.06] p-5 backdrop-blur-md transition-all duration-500 hover:scale-[1.04] hover:border-white/[0.12]"
+						style="background: rgba(10,10,20,0.5); box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset, 0 8px 32px rgba(0,0,0,0.3);"
+						use:scrollReveal={{ delay: i * 0.1 }}
+					>
+						<!-- Top accent line -->
+						<div class="absolute inset-x-0 top-0 h-px opacity-50 transition-opacity duration-500 group-hover:opacity-100"
+							style="background: linear-gradient(90deg, transparent, {cap.color}80, transparent);"></div>
+						<!-- Hover glow -->
+						<div class="pointer-events-none absolute -inset-1 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+							style="background: radial-gradient(300px circle at 50% 0%, {cap.color}12, transparent 70%);"></div>
+						<div class="relative">
+							<div class="mb-3 inline-flex rounded-xl p-2.5 transition-all duration-300"
+								style="background: {cap.color}15; color: {cap.color};">
+								{@html cap.icon}
+							</div>
+							<p class="text-sm font-semibold text-dark-200 transition-colors duration-300 group-hover:text-dark-100">{cap.label}</p>
+						</div>
+					</div>
+				{/each}
 			</div>
 		</div>
 
