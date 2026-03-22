@@ -535,7 +535,7 @@
 	</div>
 </section>
 
-<!-- ===== DIGITAL MARKETING ===== -->
+<!-- ===== DIGITAL MARKETING & EVENTS ===== -->
 <section class="relative overflow-hidden bg-dark-900 py-32">
 	<!-- Ambient gradient background -->
 	<div class="pointer-events-none absolute inset-0">
@@ -555,37 +555,39 @@
 		<div class="grid items-center gap-16 lg:grid-cols-2" use:scrollReveal>
 			<div>
 				<span class="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-pink-400">
-					Digital Marketing
+					Digital Marketing &amp; Events
 				</span>
 				<h2 class="mt-4 text-4xl font-bold leading-tight text-dark-100 md:text-5xl">
-					Amplify Your Brand<br/>
+					Grow Your Brand<br/>
 					<span class="bg-gradient-to-r from-pink-400 via-orange-400 to-amber-400 bg-clip-text text-transparent">
-						Across Every Channel
+						Online &amp; In Person
 					</span>
 				</h2>
 				<p class="mt-6 text-lg leading-relaxed text-dark-400">
-					Data-driven digital marketing strategies that combine creative storytelling with measurable performance — helping brands across Southeast Asia grow their reach, engagement, and revenue.
+					Full-spectrum demand generation — from data-driven digital campaigns to high-impact executive events. We help technology brands across Southeast Asia build pipeline, accelerate deals, and establish thought leadership.
 				</p>
 				<div class="mt-8 flex flex-wrap gap-4">
-					<Button href="/services" variant="primary">Explore Marketing Services</Button>
-					<Button href="/contact" variant="secondary">Get a Free Audit</Button>
+					<Button href="/services" variant="primary">Our Marketing Services</Button>
+					<Button href="/contact" variant="secondary">Plan Your Next Event</Button>
 				</div>
 			</div>
 
-			<!-- Capability cards -->
+			<!-- Capability cards — 4 digital + 4 events -->
 			<div class="grid grid-cols-2 gap-4">
 				{#each [
 					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>`, label: 'SEO & SEM', color: '#ec4899' },
-					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>`, label: 'Content Strategy', color: '#fb923c' },
-					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/><path d="M2 8c0-2.2.7-4.3 2-6"/><path d="M22 8a10 10 0 0 0-2-6"/></svg>`, label: 'Social Media', color: '#f59e0b' },
-					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`, label: 'Email Marketing', color: '#ec4899' },
-					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>`, label: 'Analytics & CRO', color: '#fb923c' },
-					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>`, label: 'Brand & Creative', color: '#f59e0b' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/><path d="M2 8c0-2.2.7-4.3 2-6"/><path d="M22 8a10 10 0 0 0-2-6"/></svg>`, label: 'Social Media', color: '#fb923c' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>`, label: 'Content Strategy', color: '#f59e0b' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>`, label: 'Analytics & CRO', color: '#ec4899' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>`, label: 'Tech Seminars', color: '#fb923c' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`, label: 'Executive Roundtables', color: '#f59e0b' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m15 10 5-5"/><path d="M20 10V5h-5"/><rect width="14" height="11" x="5" y="11" rx="2"/><path d="M5 15h14"/></svg>`, label: 'Product Launches', color: '#ec4899' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" y1="2" x2="8" y2="4"/><line x1="16" y1="2" x2="16" y2="4"/></svg>`, label: 'Webinars & Virtual', color: '#fb923c' },
 				] as cap, i}
 					<div
 						class="group relative overflow-hidden rounded-2xl border border-white/[0.06] p-5 backdrop-blur-md transition-all duration-500 hover:scale-[1.04] hover:border-white/[0.12]"
 						style="background: rgba(17,17,24,0.6); box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset, 0 8px 32px rgba(0,0,0,0.3);"
-						use:scrollReveal={{ delay: i * 0.1 }}
+						use:scrollReveal={{ delay: i * 0.08 }}
 					>
 						<!-- Top accent line -->
 						<div class="absolute inset-x-0 top-0 h-px opacity-50 transition-opacity duration-500 group-hover:opacity-100"
@@ -605,13 +607,13 @@
 			</div>
 		</div>
 
-		<!-- Marketing channels strip -->
+		<!-- Platforms & channels strip -->
 		<div class="mt-20 border-t border-dark-700/50 pt-12" use:scrollReveal={{ delay: 0.2 }}>
 			<p class="mb-6 text-center font-mono text-xs font-semibold uppercase tracking-[0.2em] text-dark-500">
-				Platforms & channels we manage
+				Platforms &amp; channels we manage
 			</p>
 			<div class="flex flex-wrap items-center justify-center gap-3">
-				{#each ['Google Ads', 'Meta Ads', 'LinkedIn', 'TikTok', 'YouTube', 'HubSpot', 'Mailchimp', 'Google Analytics'] as platform}
+				{#each ['Google Ads', 'Meta Ads', 'LinkedIn', 'TikTok', 'YouTube', 'HubSpot', 'Mailchimp', 'Google Analytics', 'Zoom Events', 'Eventbrite'] as platform}
 					<span class="rounded-full border border-dark-700/60 bg-dark-900/60 px-4 py-1.5 font-mono text-xs text-dark-400 transition-colors hover:border-pink-500/40 hover:text-dark-200">
 						{platform}
 					</span>
@@ -619,8 +621,8 @@
 			</div>
 		</div>
 
-		<!-- Results showcase -->
-		<div class="mt-20 grid gap-6 md:grid-cols-3" use:scrollReveal={{ delay: 0.1 }}>
+		<!-- Results showcase — mixed digital + events metrics -->
+		<div class="mt-20 grid gap-6 md:grid-cols-4" use:scrollReveal={{ delay: 0.1 }}>
 			{#each [
 				{
 					metric: '3.5x',
@@ -629,23 +631,28 @@
 				},
 				{
 					metric: '250%',
-					label: 'Organic Traffic Growth',
-					desc: 'Average year-over-year organic growth through technical SEO, content marketing, and link-building strategies.'
+					label: 'Organic Growth',
+					desc: 'Year-over-year organic traffic growth through technical SEO, content marketing, and link-building.'
 				},
 				{
-					metric: '45%',
-					label: 'Lower CAC',
-					desc: 'Reduced customer acquisition costs through full-funnel attribution modeling and cross-channel budget optimization.'
+					metric: '50+',
+					label: 'Events Delivered',
+					desc: 'Tech seminars, executive roundtables, and product launches across Jakarta, Singapore, and Kuala Lumpur.'
+				},
+				{
+					metric: '5,000+',
+					label: 'Event Attendees',
+					desc: 'C-level executives, IT leaders, and decision-makers engaged through our curated industry events annually.'
 				}
 			] as result, i}
 				<div
-					class="group relative overflow-hidden rounded-2xl border border-dark-700/40 bg-gradient-to-b from-dark-800/80 to-dark-900/80 p-7 transition-all duration-300 hover:border-pink-500/30 hover:shadow-lg hover:shadow-pink-500/5"
+					class="group relative overflow-hidden rounded-2xl border border-dark-700/40 bg-gradient-to-b from-dark-800/80 to-dark-900/80 p-6 transition-all duration-300 hover:border-pink-500/30 hover:shadow-lg hover:shadow-pink-500/5"
 					use:scrollReveal={{ delay: i * 0.1 }}
 				>
 					<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-pink-500/30 to-transparent"></div>
-					<p class="mb-1 bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-4xl font-bold text-transparent">{result.metric}</p>
-					<p class="mb-3 font-mono text-xs font-semibold uppercase tracking-wider text-pink-400/80">{result.label}</p>
-					<p class="text-sm leading-relaxed text-dark-400 group-hover:text-dark-300 transition-colors">{result.desc}</p>
+					<p class="mb-1 bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-3xl font-bold text-transparent">{result.metric}</p>
+					<p class="mb-2 font-mono text-[10px] font-semibold uppercase tracking-wider text-pink-400/80">{result.label}</p>
+					<p class="text-xs leading-relaxed text-dark-400 group-hover:text-dark-300 transition-colors">{result.desc}</p>
 				</div>
 			{/each}
 		</div>
