@@ -94,7 +94,7 @@
 
 <svelte:head>
 	<title>Asiateknologi - IT Consulting & System Integration</title>
-	<meta name="description" content="Enterprise IT consulting, IoT solutions, system integration, IT recruitment, and technology device management across Asia." />
+	<meta name="description" content="Enterprise IT Consulting, AI & Data Science, Digital Marketing & Events, Cloud & DevOps, Cybersecurity, IoT Solutions & IT Recruitment across Southeast Asia." />
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
@@ -106,8 +106,8 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://asiateknologi.com" />
 	<meta property="og:title" content="Asiateknologi - Enterprise IT Solutions Across Asia" />
-	<meta property="og:description" content="IT Consulting, IoT Solutions, Cloud Services, Cybersecurity, Device Management & IT Recruitment for Southeast Asian enterprises." />
-	<meta property="og:image" content="https://asiateknologi.com/og-image.svg" />
+	<meta property="og:description" content="IT Consulting, AI & Data Science, Digital Marketing & Events, Cloud & DevOps, Cybersecurity, IoT Solutions & IT Recruitment for Southeast Asian enterprises." />
+	<meta property="og:image" content="https://asiateknologi.com/og-image.png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 	<meta property="og:site_name" content="Asiateknologi" />
@@ -116,8 +116,8 @@
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content="https://asiateknologi.com" />
 	<meta property="twitter:title" content="Asiateknologi - Enterprise IT Solutions Across Asia" />
-	<meta property="twitter:description" content="IT Consulting, IoT Solutions, Cloud Services, Cybersecurity, Device Management & IT Recruitment for Southeast Asian enterprises." />
-	<meta property="twitter:image" content="https://asiateknologi.com/og-image.svg" />
+	<meta property="twitter:description" content="IT Consulting, AI & Data Science, Digital Marketing & Events, Cloud & DevOps, Cybersecurity, IoT Solutions & IT Recruitment for Southeast Asian enterprises." />
+	<meta property="twitter:image" content="https://asiateknologi.com/og-image.png" />
 	<meta name="twitter:creator" content="@asiateknologi" />
 
 	<!-- JSON-LD: Organization structured data -->
