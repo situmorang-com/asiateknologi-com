@@ -105,6 +105,48 @@
 	animation-play-state: paused;
 }
 
+/* Neural network animation (AI & Data Science section) */
+@keyframes nn-spoke {
+	0%   { stroke-dashoffset: 22; }
+	100% { stroke-dashoffset: 0; }
+}
+@keyframes nn-node-glow {
+	0%, 100% { opacity: 0.55; }
+	50%       { opacity: 1; }
+}
+@keyframes nn-hub-ring {
+	0%   { transform: scale(1);   opacity: 0.45; }
+	100% { transform: scale(1.9); opacity: 0; }
+}
+@keyframes nn-hub-star {
+	from { transform: rotate(0deg); }
+	to   { transform: rotate(360deg); }
+}
+@keyframes nn-float {
+	0%, 100% { transform: translateY(0px); }
+	50%       { transform: translateY(-8px); }
+}
+
+.nn-spoke {
+	animation: nn-spoke 1.6s linear infinite;
+}
+.nn-node {
+	animation: nn-node-glow 2.5s ease-in-out infinite;
+}
+.nn-hub-ring {
+	transform-box: fill-box;
+	transform-origin: center;
+	animation: nn-hub-ring 2.8s ease-out infinite;
+}
+.nn-hub-star {
+	transform-box: fill-box;
+	transform-origin: center;
+	animation: nn-hub-star 12s linear infinite;
+}
+.nn-float {
+	animation: nn-float 4s ease-in-out infinite;
+}
+
 /* Planet orbit animations (global — referenced via inline style in +page.svelte) */
 @keyframes planet-spin {
 	from { transform: rotate(0deg); }
