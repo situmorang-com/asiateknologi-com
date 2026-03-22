@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 	import ParticleNetwork from '$lib/components/three/ParticleNetwork.svelte';
 	import SectionHeading from '$lib/components/ui/SectionHeading.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
