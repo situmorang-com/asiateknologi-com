@@ -12,6 +12,7 @@
 	import { parallax } from '$lib/animations/actions/parallax';
 	import PartnerLogo from '$lib/components/ui/PartnerLogo.svelte';
 	import AiParticles from '$lib/components/ui/AiParticles.svelte';
+	import AiOrbit from '$lib/components/ui/AiOrbit.svelte';
 
 	let { data } = $props();
 
@@ -453,8 +454,15 @@
 				</div>
 			</div>
 
-			<!-- Glassmorphic capability cards -->
-			<div class="grid grid-cols-2 gap-4">
+			<!-- Animated AI Orbit visualization -->
+			<div class="relative hidden min-h-[450px] lg:block" use:scrollReveal={{ delay: 0.2 }}>
+				{#if browser}
+					<AiOrbit />
+				{/if}
+			</div>
+
+			<!-- Mobile fallback: capability cards -->
+			<div class="grid grid-cols-2 gap-4 lg:hidden">
 				{#each [
 					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 1 0 5 5"/><circle cx="12" cy="7" r="5"/><path d="M2 22c0-5.523 4.477-10 10-10s10 4.477 10 10"/><circle cx="18" cy="8" r="3"/></svg>`, label: 'Machine Learning', color: '#8b5cf6' },
 					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M15 3v18"/></svg>`, label: 'Data Warehousing', color: '#3b82f6' },
@@ -468,12 +476,8 @@
 						style="background: rgba(10,10,20,0.5); box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset, 0 8px 32px rgba(0,0,0,0.3);"
 						use:scrollReveal={{ delay: i * 0.1 }}
 					>
-						<!-- Top accent line -->
 						<div class="absolute inset-x-0 top-0 h-px opacity-50 transition-opacity duration-500 group-hover:opacity-100"
 							style="background: linear-gradient(90deg, transparent, {cap.color}80, transparent);"></div>
-						<!-- Hover glow -->
-						<div class="pointer-events-none absolute -inset-1 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-							style="background: radial-gradient(300px circle at 50% 0%, {cap.color}12, transparent 70%);"></div>
 						<div class="relative">
 							<div class="mb-3 inline-flex rounded-xl p-2.5 transition-all duration-300"
 								style="background: {cap.color}15; color: {cap.color};">
