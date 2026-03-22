@@ -296,9 +296,16 @@ export function seed(db: BetterSQLite3Database, sqlite: Database.Database) {
 		{ name:'Alibaba Cloud', partnerType:'technology', tier:'advanced', description:'Alibaba Cloud Advanced Partner for cloud computing, ECS, OSS, and AI services in Asia.', url:'https://alibabacloud.com', sortOrder:10 },
 		{ name:'Huawei', partnerType:'technology', tier:'gold', description:'Huawei Gold Partner for enterprise networking, cloud, and smart city infrastructure.', url:'https://huawei.com', sortOrder:11 },
 		{ name:'Tencent Cloud', partnerType:'technology', tier:'select', description:'Tencent Cloud Partner for cloud hosting, CDN, gaming infrastructure, and AI services.', url:'https://intl.cloud.tencent.com', sortOrder:12 },
-		{ name:'ISO 27001', partnerType:'certification', description:'Information Security Management System certification.', sortOrder:13 },
-		{ name:'ISO 9001:2015', partnerType:'certification', description:'Quality Management System certification.', sortOrder:14 },
-		{ name:'Kominfo Registered', partnerType:'certification', description:"Registered Electronic System Organizer (PSE) with Indonesia's Ministry of Communication and Information Technology.", sortOrder:15 }
+		{ name:'Confluent', partnerType:'technology', tier:'select', description:'Confluent Partner for Apache Kafka-based event streaming, real-time data pipelines, and stream processing.', url:'https://confluent.io', sortOrder:13 },
+		{ name:'Tableau', partnerType:'technology', tier:'authorized', description:'Tableau (Salesforce) Partner for enterprise business intelligence, interactive dashboards, and data visualization.', url:'https://tableau.com', sortOrder:14 },
+		{ name:'Databricks', partnerType:'technology', tier:'select', description:'Databricks Partner for lakehouse architecture, Apache Spark, Delta Lake, and unified data & AI platforms.', url:'https://databricks.com', sortOrder:15 },
+		{ name:'Power BI', partnerType:'technology', tier:'gold', description:'Microsoft Power BI Partner for self-service analytics, interactive reports, and enterprise data visualization.', url:'https://powerbi.microsoft.com', sortOrder:16 },
+		{ name:'Looker', partnerType:'technology', tier:'select', description:'Google Looker Partner for modern business intelligence, embedded analytics, and data-driven application development.', url:'https://looker.com', sortOrder:17 },
+		{ name:'Microsoft Fabric', partnerType:'technology', tier:'advanced', description:'Microsoft Fabric Partner for end-to-end analytics, data engineering, data science, and real-time intelligence.', url:'https://microsoft.com/fabric', sortOrder:18 },
+		{ name:'Odoo', partnerType:'technology', tier:'certified', description:'Odoo Certified Partner for ERP, CRM, accounting, inventory, and open-source business application suites.', url:'https://odoo.com', sortOrder:19 },
+		{ name:'ISO 27001', partnerType:'certification', description:'Information Security Management System certification.', sortOrder:20 },
+		{ name:'ISO 9001:2015', partnerType:'certification', description:'Quality Management System certification.', sortOrder:21 },
+		{ name:'Kominfo Registered', partnerType:'certification', description:"Registered Electronic System Organizer (PSE) with Indonesia's Ministry of Communication and Information Technology.", sortOrder:22 }
 	]).run();
 
 	// ══════════════════════════════════════════════════════════════════════════════

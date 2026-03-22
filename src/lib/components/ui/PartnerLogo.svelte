@@ -14,6 +14,13 @@
 		'Alibaba Cloud':              { file: 'alibaba-cloud.svg',     color: '#FF6A00' },
 		'Huawei':                     { file: 'huawei.svg',            color: '#CF0A2C' },
 		'Tencent Cloud':              { file: 'tencent-cloud.svg',     color: '#1AABFF' },
+		'Confluent':                  { file: 'confluent.svg',         color: '#CC1F24' },
+		'Tableau':                    { file: 'tableau.png',           color: '#E97627' },
+		'Databricks':                 { file: 'databricks.svg',        color: '#FF3621' },
+		'Power BI':                   { file: 'powerbi.svg',           color: '#F2C811' },
+		'Looker':                     { file: 'looker.svg',            color: '#4285F4' },
+		'Microsoft Fabric':           { file: 'fabric.svg',            color: '#0078D4' },
+		'Odoo':                       { file: 'odoo.svg',              color: '#714B67' },
 	};
 
 	const tierColors: Record<string, string> = {
