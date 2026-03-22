@@ -290,9 +290,15 @@ export function seed(db: BetterSQLite3Database, sqlite: Database.Database) {
 		{ name:'Siemens Digital Industries', partnerType:'technology', tier:'certified', description:'Siemens Technology Partner for industrial automation, SCADA, and smart infrastructure.', url:'https://siemens.com', sortOrder:4 },
 		{ name:'Palo Alto Networks', partnerType:'technology', tier:'authorized', description:'Palo Alto Authorized Partner for next-generation firewall and zero-trust security.', url:'https://paloaltonetworks.com', sortOrder:5 },
 		{ name:'Snowflake', partnerType:'technology', tier:'select', description:'Snowflake Select Partner for cloud data warehousing implementations.', url:'https://snowflake.com', sortOrder:6 },
-		{ name:'ISO 27001', partnerType:'certification', description:'Information Security Management System certification.', sortOrder:7 },
-		{ name:'ISO 9001:2015', partnerType:'certification', description:'Quality Management System certification.', sortOrder:8 },
-		{ name:'Kominfo Registered', partnerType:'certification', description:"Registered Electronic System Organizer (PSE) with Indonesia's Ministry of Communication and Information Technology.", sortOrder:9 }
+		{ name:'BytePlus', partnerType:'technology', tier:'authorized', description:'BytePlus Partner for AI-powered cloud services, CDN, and real-time data solutions.', url:'https://byteplus.com', sortOrder:7 },
+		{ name:'Vonage', partnerType:'technology', tier:'select', description:'Vonage API Partner for CPaaS, SMS, voice, and video communication integrations.', url:'https://vonage.com', sortOrder:8 },
+		{ name:'Ruijie Networks', partnerType:'technology', tier:'certified', description:'Ruijie Certified Partner for enterprise networking, Wi-Fi, and campus infrastructure.', url:'https://ruijienetworks.com', sortOrder:9 },
+		{ name:'Alibaba Cloud', partnerType:'technology', tier:'advanced', description:'Alibaba Cloud Advanced Partner for cloud computing, ECS, OSS, and AI services in Asia.', url:'https://alibabacloud.com', sortOrder:10 },
+		{ name:'Huawei', partnerType:'technology', tier:'gold', description:'Huawei Gold Partner for enterprise networking, cloud, and smart city infrastructure.', url:'https://huawei.com', sortOrder:11 },
+		{ name:'Tencent Cloud', partnerType:'technology', tier:'select', description:'Tencent Cloud Partner for cloud hosting, CDN, gaming infrastructure, and AI services.', url:'https://intl.cloud.tencent.com', sortOrder:12 },
+		{ name:'ISO 27001', partnerType:'certification', description:'Information Security Management System certification.', sortOrder:13 },
+		{ name:'ISO 9001:2015', partnerType:'certification', description:'Quality Management System certification.', sortOrder:14 },
+		{ name:'Kominfo Registered', partnerType:'certification', description:"Registered Electronic System Organizer (PSE) with Indonesia's Ministry of Communication and Information Technology.", sortOrder:15 }
 	]).run();
 
 	// ══════════════════════════════════════════════════════════════════════════════
