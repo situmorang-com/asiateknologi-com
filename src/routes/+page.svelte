@@ -448,7 +448,7 @@
 					We build end-to-end data and AI pipelines — from raw ingestion to predictive models and real-time dashboards — helping enterprises in Southeast Asia make faster, smarter decisions.
 				</p>
 				<div class="mt-8 flex flex-wrap gap-4">
-					<Button href="/services" variant="primary">Explore AI Services</Button>
+					<Button href="/services/ai-data-science" variant="primary">Explore AI Services</Button>
 					<Button href="/contact" variant="secondary">Book a Data Audit</Button>
 				</div>
 			</div>
@@ -567,7 +567,7 @@
 					Full-spectrum demand generation — from data-driven digital campaigns to high-impact executive events. We help technology brands across Southeast Asia build pipeline, accelerate deals, and establish thought leadership.
 				</p>
 				<div class="mt-8 flex flex-wrap gap-4">
-					<Button href="/services" variant="primary">Our Marketing Services</Button>
+					<Button href="/services/digital-marketing" variant="primary">Our Marketing Services</Button>
 					<Button href="/contact" variant="secondary">Plan Your Next Event</Button>
 				</div>
 			</div>
