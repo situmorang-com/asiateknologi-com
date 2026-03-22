@@ -286,45 +286,41 @@
 				</div>
 			</div>
 
-			<!-- Right: Animated graphic -->
+			<!-- Right: Planet orbit graphic -->
 			<div class="relative flex items-center justify-center" use:scrollReveal={{ direction: 'right' }}>
 				<div class="relative h-[420px] w-[420px]">
-					<!-- Outer glow -->
+					<!-- Ambient glow -->
 					<div class="absolute inset-0 rounded-full bg-accent-cyan/5 blur-3xl"></div>
 
-					<!-- Orbiting rings -->
-					<div class="absolute inset-0 animate-spin-slow rounded-full border border-dark-600/40"></div>
-					<div class="absolute inset-8 animate-spin-slow-reverse rounded-full border border-accent-cyan/20"></div>
-					<div class="absolute inset-16 animate-spin-slow rounded-full border border-accent-blue/15"></div>
+					<!-- Static dashed orbital rings -->
+					<div class="absolute inset-0 rounded-full border border-dashed border-dark-600/50"></div>
+					<div class="absolute inset-[52px] rounded-full border border-dashed border-accent-cyan/20"></div>
 
-					<!-- Center logo box -->
+					<!-- Center logo -->
 					<div class="absolute inset-0 flex items-center justify-center">
 						<div class="relative">
 							<div class="h-28 w-28 rounded-3xl border border-accent-cyan/30 bg-gradient-to-br from-dark-700 to-dark-800 flex items-center justify-center shadow-2xl shadow-accent-cyan/20">
-								<span class="font-mono text-3xl font-bold text-accent-cyan">AT</span>
+								<img src="/logo.png" alt="Asiateknologi" class="h-16 w-auto object-contain" style="filter: brightness(0) invert(1);" />
 							</div>
 							<div class="absolute inset-0 rounded-3xl bg-accent-cyan/10 blur-2xl"></div>
 						</div>
 					</div>
 
-					<!-- Orbiting node badges -->
+					<!-- Planet orbit nodes
+						 Each arm spins CW; inner badge counter-spins CCW → text stays upright.
+						 Negative animation-delay staggers starting angle (i/4 × duration = 90° apart). -->
 					{#each [
-						{ angle: 0,   label: 'IoT',     color: 'accent-cyan' },
-						{ angle: 90,  label: 'Cloud',   color: 'accent-blue' },
-						{ angle: 180, label: 'AI/ML',   color: 'accent-purple' },
-						{ angle: 270, label: 'SCADA',   color: 'accent-cyan' }
-					] as node, i}
-						<div
-							class="absolute flex items-center justify-center"
-							style="
-								width: 56px; height: 56px;
-								top: 50%; left: 50%;
-								transform: rotate({node.angle}deg) translateY(-168px) rotate(-{node.angle}deg) translate(-50%, -50%);
-								animation: orbit-pulse 2s ease-in-out {i * 0.5}s infinite alternate;
-							"
-						>
-							<div class="rounded-xl border border-dark-500 bg-dark-800 px-2.5 py-1.5 text-center shadow-lg">
-								<span class="font-mono text-xs font-bold text-accent-cyan">{node.label}</span>
+						{ label: 'IoT',   color: '#00e5ff', glow: '#00e5ff33' },
+						{ label: 'Cloud', color: '#3b82f6', glow: '#3b82f633' },
+						{ label: 'AI/ML', color: '#a78bfa', glow: '#a78bfa33' },
+						{ label: 'SCADA', color: '#00e5ff', glow: '#00e5ff33' }
+					] as planet, i}
+						<div class="planet-arm absolute" style="top:50%;left:50%;width:0;height:0;animation:planet-spin 18s linear infinite;animation-delay:-{(i/4)*18}s;">
+							<div class="planet-badge absolute" style="top:-168px;transform:translate(-50%,-50%);animation:planet-counter 18s linear infinite;animation-delay:-{(i/4)*18}s;">
+								<div class="rounded-xl border px-3 py-1.5 backdrop-blur-sm" style="background:#0d0d1a;border-color:{planet.color}50;box-shadow:0 0 12px {planet.glow},inset 0 0 8px {planet.glow};">
+									<span class="font-mono text-xs font-bold" style="color:{planet.color};">{planet.label}</span>
+								</div>
+								<div class="absolute left-1/2 -translate-x-1/2 rounded-full" style="bottom:-20px;width:6px;height:6px;background:{planet.color};box-shadow:0 0 8px {planet.color};"></div>
 							</div>
 						</div>
 					{/each}
@@ -835,6 +831,16 @@
 </section>
 
 <style>
+	@keyframes planet-spin {
+		from { transform: rotate(0deg); }
+		to   { transform: rotate(360deg); }
+	}
+
+	@keyframes planet-counter {
+		from { transform: translate(-50%, -50%) rotate(0deg); }
+		to   { transform: translate(-50%, -50%) rotate(-360deg); }
+	}
+
 	@keyframes spin-slow {
 		from { transform: rotate(0deg); }
 		to { transform: rotate(360deg); }
