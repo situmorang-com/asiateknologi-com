@@ -734,10 +734,24 @@
 			</a>
 		</div>
 
-		<div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-			{#each data.technologyPartners as partner, i}
-				<div use:scrollReveal={{ delay: i * 0.07 }}>
-					<PartnerLogo name={partner.name} tier={partner.tier} />
+	</div>
+
+	<!-- Scrolling marquee — full width, bleeds past max-w container -->
+	<div class="relative mt-8 overflow-hidden">
+		<!-- Fade edges -->
+		<div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-dark-950 to-transparent"></div>
+		<div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-dark-950 to-transparent"></div>
+
+		<!-- Scrolling track -->
+		<div class="partner-marquee flex gap-4" style="width: max-content;">
+			<!-- Render twice for seamless loop -->
+			{#each [data.technologyPartners, data.technologyPartners] as group}
+				<div class="flex gap-4">
+					{#each group as partner}
+						<div class="w-44 shrink-0">
+							<PartnerLogo name={partner.name} tier={partner.tier} />
+						</div>
+					{/each}
 				</div>
 			{/each}
 		</div>

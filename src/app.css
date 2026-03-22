@@ -91,6 +91,20 @@
 	background: var(--color-accent-cyan);
 }
 
+/* Partner marquee scroll */
+@keyframes marquee-scroll {
+	0%   { transform: translateX(0); }
+	100% { transform: translateX(-50%); }
+}
+
+.partner-marquee {
+	animation: marquee-scroll 30s linear infinite;
+}
+
+.partner-marquee:hover {
+	animation-play-state: paused;
+}
+
 /* Planet orbit animations (global — referenced via inline style in +page.svelte) */
 @keyframes planet-spin {
 	from { transform: rotate(0deg); }
