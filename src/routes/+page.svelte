@@ -44,6 +44,15 @@
 	};
 
 	// ── Process steps ────────────────────────────────────────────────────────────
+	let activeStep = $state(0);
+
+	onMount(() => {
+		const t = setInterval(() => {
+			activeStep = (activeStep + 1) % 5;
+		}, 2500);
+		return () => clearInterval(t);
+	});
+
 	const processSteps = [
 		{
 			num: '01',
@@ -342,31 +351,77 @@
 		/>
 
 		<!-- Desktop: horizontal row; Mobile: vertical stack -->
-		<div class="relative mt-16">
-			<!-- Connecting line (desktop only) -->
-			<div class="absolute top-[52px] left-[calc(10%+28px)] right-[calc(10%+28px)] hidden h-px lg:block">
-				<div class="h-full bg-gradient-to-r from-accent-cyan/40 via-accent-blue/40 to-accent-purple/40"></div>
+		<div class="relative mt-16" use:scrollReveal>
+
+			<!-- Connecting track (desktop) -->
+			<div class="absolute top-[26px] left-[calc(10%+28px)] right-[calc(10%+28px)] hidden h-px lg:block overflow-hidden bg-dark-700/60 rounded-full">
+				<!-- Animated fill: moves segment by segment as activeStep advances -->
+				<div
+					class="h-full rounded-full bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple transition-all duration-700 ease-in-out"
+					style="width: {activeStep === 0 ? 0 : (activeStep / 4) * 100}%;"
+				></div>
 			</div>
 
-			<div class="grid gap-8 lg:grid-cols-5">
+			<div class="grid gap-6 lg:grid-cols-5">
 				{#each processSteps as step, i}
+					{@const isActive = i === activeStep}
+					{@const isDone   = i < activeStep}
 					<div
-						class="group relative flex flex-col items-center text-center lg:items-center"
-						use:scrollReveal={{ delay: i * 0.12 }}
+						class="relative flex flex-col items-center text-center cursor-pointer"
+						onclick={() => activeStep = i}
 					>
-						<!-- Numbered badge -->
-						<div class="relative z-10 mb-5 flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent-cyan/40 bg-dark-900 font-mono text-lg font-bold text-accent-cyan shadow-lg shadow-accent-cyan/10 transition-all duration-300 group-hover:border-accent-cyan group-hover:bg-accent-cyan/10 group-hover:shadow-accent-cyan/30">
-							{step.num}
+						<!-- Number badge -->
+						<div
+							class="relative z-10 mb-5 flex h-14 w-14 items-center justify-center rounded-full border-2 font-mono text-lg font-bold transition-all duration-500 {isActive ? 'border-accent-cyan bg-accent-cyan text-dark-950 scale-110' : isDone ? 'border-accent-cyan/60 bg-accent-cyan/20 text-accent-cyan' : 'border-dark-600 bg-dark-900 text-accent-cyan'}"
+							style="box-shadow: {isActive ? '0 0 24px rgba(0,229,255,0.5)' : isDone ? '0 0 8px rgba(0,229,255,0.2)' : 'none'};"
+						>
+							{#if isDone}
+								<!-- Checkmark for completed steps -->
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="20 6 9 17 4 12"/>
+								</svg>
+							{:else}
+								{step.num}
+							{/if}
 						</div>
 
 						<!-- Step card -->
-						<div class="rounded-xl border border-dark-600/60 bg-dark-800 p-5 transition-all duration-300 group-hover:border-accent-cyan/40 group-hover:shadow-lg group-hover:shadow-accent-cyan/5">
-							<h3 class="mb-2 text-base font-bold text-dark-100 transition-colors group-hover:text-accent-cyan">
+						<div
+							class="w-full rounded-xl border p-5 transition-all duration-500 {isActive ? 'border-accent-cyan bg-dark-800 shadow-lg' : isDone ? 'border-accent-cyan/30 bg-dark-800/60' : 'border-dark-700/50 bg-dark-900/40'}"
+							style="box-shadow: {isActive ? '0 8px 32px rgba(0,229,255,0.12)' : 'none'};"
+						>
+							<h3
+								class="mb-2 text-base font-bold transition-colors duration-300"
+								class:text-accent-cyan={isActive}
+								class:text-dark-200={isDone && !isActive}
+								class:text-dark-400={!isActive && !isDone}
+							>
 								{step.name}
 							</h3>
-							<p class="text-xs leading-relaxed text-dark-400">{step.desc}</p>
+							<p
+								class="text-xs leading-relaxed transition-colors duration-300"
+								class:text-dark-300={isActive}
+								class:text-dark-400={!isActive}
+							>
+								{step.desc}
+							</p>
 						</div>
 					</div>
+				{/each}
+			</div>
+
+			<!-- Step dots (mobile progress indicator) -->
+			<div class="mt-6 flex justify-center gap-2 lg:hidden">
+				{#each processSteps as _, i}
+					<button
+						onclick={() => activeStep = i}
+						class="h-2 rounded-full transition-all duration-300"
+						class:w-6={i === activeStep}
+						class:bg-accent-cyan={i === activeStep}
+						class:w-2={i !== activeStep}
+						class:bg-dark-600={i !== activeStep}
+						aria-label="Step {i + 1}"
+					></button>
 				{/each}
 			</div>
 		</div>
