@@ -408,6 +408,111 @@
 	</div>
 </section>
 
+<!-- ===== AI & DATA SCIENCE ===== -->
+<section class="relative overflow-hidden bg-dark-950 py-32">
+	<!-- Background grid -->
+	<div class="absolute inset-0 opacity-[0.025]" style="background-image: radial-gradient(circle at 1px 1px, rgba(0,229,255,0.8) 1px, transparent 0); background-size: 32px 32px;"></div>
+	<!-- Glow orbs -->
+	<div class="absolute -left-40 top-1/4 h-96 w-96 rounded-full bg-accent-purple/10 blur-3xl pointer-events-none"></div>
+	<div class="absolute -right-40 bottom-1/4 h-96 w-96 rounded-full bg-accent-cyan/8 blur-3xl pointer-events-none"></div>
+	<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-purple/40 to-transparent"></div>
+	<div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent-cyan/30 to-transparent"></div>
+
+	<div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+
+		<!-- Header -->
+		<div class="grid items-center gap-16 lg:grid-cols-2" use:scrollReveal>
+			<div>
+				<span class="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-accent-purple">
+					AI &amp; Data Science
+				</span>
+				<h2 class="mt-4 text-4xl font-bold leading-tight text-dark-100 md:text-5xl">
+					Turn Your Data Into<br/>
+					<span class="bg-gradient-to-r from-accent-purple via-accent-blue to-accent-cyan bg-clip-text text-transparent">
+						Competitive Intelligence
+					</span>
+				</h2>
+				<p class="mt-6 text-lg leading-relaxed text-dark-400">
+					We build end-to-end data and AI pipelines — from raw ingestion to predictive models and real-time dashboards — helping enterprises in Southeast Asia make faster, smarter decisions.
+				</p>
+				<div class="mt-8 flex flex-wrap gap-4">
+					<Button href="/services" variant="primary">Explore AI Services</Button>
+					<Button href="/contact" variant="secondary">Book a Data Audit</Button>
+				</div>
+			</div>
+
+			<!-- Animated capability grid -->
+			<div class="grid grid-cols-2 gap-4">
+				{#each [
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 1 0 5 5"/><circle cx="12" cy="7" r="5"/><path d="M2 22c0-5.523 4.477-10 10-10s10 4.477 10 10"/><circle cx="18" cy="8" r="3"/><path d="m21 2-3 3m0-3 3 3"/></svg>`, label: 'Machine Learning', color: 'accent-purple' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M15 3v18"/></svg>`, label: 'Data Warehousing', color: 'accent-blue' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`, label: 'Real-time Streaming', color: 'accent-cyan' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>`, label: 'BI & Dashboards', color: 'accent-green' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>`, label: 'Data Engineering', color: 'accent-purple' },
+					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.96-4.03A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.96-4.03A2.5 2.5 0 0 0 14.5 2Z"/></svg>`, label: 'Generative AI', color: 'accent-blue' },
+				] as cap, i}
+					<div
+						class="group relative overflow-hidden rounded-2xl border border-dark-700/50 bg-dark-900/60 p-5 transition-all duration-300 hover:border-dark-600 hover:bg-dark-800/80"
+						use:scrollReveal={{ delay: i * 0.08 }}
+					>
+						<div class="mb-3 inline-flex rounded-xl bg-dark-800 p-2.5 text-{cap.color} ring-1 ring-dark-700 transition-all duration-300 group-hover:ring-{cap.color}/40">
+							{@html cap.icon}
+						</div>
+						<p class="text-sm font-semibold text-dark-200">{cap.label}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+
+		<!-- Tech stack strip -->
+		<div class="mt-20 border-t border-dark-700/50 pt-12" use:scrollReveal={{ delay: 0.2 }}>
+			<p class="mb-6 text-center font-mono text-xs font-semibold uppercase tracking-[0.2em] text-dark-500">
+				Powered by leading data platforms
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-3">
+				{#each ['Databricks', 'Snowflake', 'Confluent', 'Power BI', 'Looker', 'Tableau', 'Microsoft Fabric', 'Odoo'] as tool}
+					<span class="rounded-full border border-dark-700/60 bg-dark-900/60 px-4 py-1.5 font-mono text-xs text-dark-400 transition-colors hover:border-accent-purple/40 hover:text-dark-200">
+						{tool}
+					</span>
+				{/each}
+			</div>
+		</div>
+
+		<!-- Use cases -->
+		<div class="mt-20 grid gap-6 md:grid-cols-3" use:scrollReveal={{ delay: 0.1 }}>
+			{#each [
+				{
+					industry: 'Mining & Resources',
+					useCase: 'Predictive equipment failure detection using IoT sensor data and time-series ML models — reducing unplanned downtime by up to 40%.',
+					icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20l4-4m0 0l4 4m-4-4v-8l6-6 6 6v8m0 0l4 4m-4-4l-4 4m4-4"/></svg>`
+				},
+				{
+					industry: 'Financial Services',
+					useCase: 'Real-time fraud detection pipelines and regulatory reporting dashboards built on Snowflake and Power BI for banking compliance.',
+					icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 14h.01"/><path d="M10 14h4"/></svg>`
+				},
+				{
+					industry: 'Healthcare',
+					useCase: 'Patient outcome prediction models and clinical data lake architecture using HL7 FHIR-compliant pipelines for hospital networks.',
+					icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`
+				}
+			] as uc, i}
+				<div
+					class="group relative overflow-hidden rounded-2xl border border-dark-700/40 bg-gradient-to-b from-dark-900/80 to-dark-950/80 p-7 transition-all duration-300 hover:border-accent-purple/30 hover:shadow-lg hover:shadow-accent-purple/5"
+					use:scrollReveal={{ delay: i * 0.1 }}
+				>
+					<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-purple/30 to-transparent"></div>
+					<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-dark-600/60 bg-dark-800/60 px-3 py-1.5 text-accent-purple">
+						{@html uc.icon}
+						<span class="font-mono text-xs font-semibold">{uc.industry}</span>
+					</div>
+					<p class="text-sm leading-relaxed text-dark-400 group-hover:text-dark-300 transition-colors">{uc.useCase}</p>
+				</div>
+			{/each}
+		</div>
+	</div>
+</section>
+
 <!-- ===== SERVICES SECTION ===== -->
 <section class="relative py-32">
 	<div class="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-950 to-dark-950"></div>
@@ -743,111 +848,6 @@
 						<span use:counterUp={{ suffix: stat.suffix }}>{stat.value}</span>
 					</div>
 					<div class="mt-2 text-sm text-dark-400">{stat.label}</div>
-				</div>
-			{/each}
-		</div>
-	</div>
-</section>
-
-<!-- ===== AI & DATA SCIENCE ===== -->
-<section class="relative overflow-hidden bg-dark-950 py-32">
-	<!-- Background grid -->
-	<div class="absolute inset-0 opacity-[0.025]" style="background-image: radial-gradient(circle at 1px 1px, rgba(0,229,255,0.8) 1px, transparent 0); background-size: 32px 32px;"></div>
-	<!-- Glow orbs -->
-	<div class="absolute -left-40 top-1/4 h-96 w-96 rounded-full bg-accent-purple/10 blur-3xl pointer-events-none"></div>
-	<div class="absolute -right-40 bottom-1/4 h-96 w-96 rounded-full bg-accent-cyan/8 blur-3xl pointer-events-none"></div>
-	<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-purple/40 to-transparent"></div>
-	<div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent-cyan/30 to-transparent"></div>
-
-	<div class="relative mx-auto max-w-7xl px-6 lg:px-8">
-
-		<!-- Header -->
-		<div class="grid items-center gap-16 lg:grid-cols-2" use:scrollReveal>
-			<div>
-				<span class="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-accent-purple">
-					AI &amp; Data Science
-				</span>
-				<h2 class="mt-4 text-4xl font-bold leading-tight text-dark-100 md:text-5xl">
-					Turn Your Data Into<br/>
-					<span class="bg-gradient-to-r from-accent-purple via-accent-blue to-accent-cyan bg-clip-text text-transparent">
-						Competitive Intelligence
-					</span>
-				</h2>
-				<p class="mt-6 text-lg leading-relaxed text-dark-400">
-					We build end-to-end data and AI pipelines — from raw ingestion to predictive models and real-time dashboards — helping enterprises in Southeast Asia make faster, smarter decisions.
-				</p>
-				<div class="mt-8 flex flex-wrap gap-4">
-					<Button href="/services" variant="primary">Explore AI Services</Button>
-					<Button href="/contact" variant="secondary">Book a Data Audit</Button>
-				</div>
-			</div>
-
-			<!-- Animated capability grid -->
-			<div class="grid grid-cols-2 gap-4">
-				{#each [
-					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 1 0 5 5"/><circle cx="12" cy="7" r="5"/><path d="M2 22c0-5.523 4.477-10 10-10s10 4.477 10 10"/><circle cx="18" cy="8" r="3"/><path d="m21 2-3 3m0-3 3 3"/></svg>`, label: 'Machine Learning', color: 'accent-purple' },
-					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M15 3v18"/></svg>`, label: 'Data Warehousing', color: 'accent-blue' },
-					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`, label: 'Real-time Streaming', color: 'accent-cyan' },
-					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>`, label: 'BI & Dashboards', color: 'accent-green' },
-					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>`, label: 'Data Engineering', color: 'accent-purple' },
-					{ icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.96-4.03A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.96-4.03A2.5 2.5 0 0 0 14.5 2Z"/></svg>`, label: 'Generative AI', color: 'accent-blue' },
-				] as cap, i}
-					<div
-						class="group relative overflow-hidden rounded-2xl border border-dark-700/50 bg-dark-900/60 p-5 transition-all duration-300 hover:border-dark-600 hover:bg-dark-800/80"
-						use:scrollReveal={{ delay: i * 0.08 }}
-					>
-						<div class="mb-3 inline-flex rounded-xl bg-dark-800 p-2.5 text-{cap.color} ring-1 ring-dark-700 transition-all duration-300 group-hover:ring-{cap.color}/40">
-							{@html cap.icon}
-						</div>
-						<p class="text-sm font-semibold text-dark-200">{cap.label}</p>
-					</div>
-				{/each}
-			</div>
-		</div>
-
-		<!-- Tech stack strip -->
-		<div class="mt-20 border-t border-dark-700/50 pt-12" use:scrollReveal={{ delay: 0.2 }}>
-			<p class="mb-6 text-center font-mono text-xs font-semibold uppercase tracking-[0.2em] text-dark-500">
-				Powered by leading data platforms
-			</p>
-			<div class="flex flex-wrap items-center justify-center gap-3">
-				{#each ['Databricks', 'Snowflake', 'Confluent', 'Power BI', 'Looker', 'Tableau', 'Microsoft Fabric', 'Odoo'] as tool}
-					<span class="rounded-full border border-dark-700/60 bg-dark-900/60 px-4 py-1.5 font-mono text-xs text-dark-400 transition-colors hover:border-accent-purple/40 hover:text-dark-200">
-						{tool}
-					</span>
-				{/each}
-			</div>
-		</div>
-
-		<!-- Use cases -->
-		<div class="mt-20 grid gap-6 md:grid-cols-3" use:scrollReveal={{ delay: 0.1 }}>
-			{#each [
-				{
-					industry: 'Mining & Resources',
-					useCase: 'Predictive equipment failure detection using IoT sensor data and time-series ML models — reducing unplanned downtime by up to 40%.',
-					icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20l4-4m0 0l4 4m-4-4v-8l6-6 6 6v8m0 0l4 4m-4-4l-4 4m4-4"/></svg>`
-				},
-				{
-					industry: 'Financial Services',
-					useCase: 'Real-time fraud detection pipelines and regulatory reporting dashboards built on Snowflake and Power BI for banking compliance.',
-					icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 14h.01"/><path d="M10 14h4"/></svg>`
-				},
-				{
-					industry: 'Healthcare',
-					useCase: 'Patient outcome prediction models and clinical data lake architecture using HL7 FHIR-compliant pipelines for hospital networks.',
-					icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`
-				}
-			] as uc, i}
-				<div
-					class="group relative overflow-hidden rounded-2xl border border-dark-700/40 bg-gradient-to-b from-dark-900/80 to-dark-950/80 p-7 transition-all duration-300 hover:border-accent-purple/30 hover:shadow-lg hover:shadow-accent-purple/5"
-					use:scrollReveal={{ delay: i * 0.1 }}
-				>
-					<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-purple/30 to-transparent"></div>
-					<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-dark-600/60 bg-dark-800/60 px-3 py-1.5 text-accent-purple">
-						{@html uc.icon}
-						<span class="font-mono text-xs font-semibold">{uc.industry}</span>
-					</div>
-					<p class="text-sm leading-relaxed text-dark-400 group-hover:text-dark-300 transition-colors">{uc.useCase}</p>
 				</div>
 			{/each}
 		</div>
