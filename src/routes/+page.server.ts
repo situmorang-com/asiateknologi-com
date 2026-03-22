@@ -36,7 +36,6 @@ export const load: PageServerLoad = async () => {
 		.from(partners)
 		.where(eq(partners.partnerType, 'technology'))
 		.orderBy(asc(partners.sortOrder))
-		.limit(6)
 		.all();
 
 	const recentInsights = db
