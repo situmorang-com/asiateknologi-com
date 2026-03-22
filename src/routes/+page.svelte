@@ -831,15 +831,6 @@
 </section>
 
 <style>
-	@keyframes planet-spin {
-		from { transform: rotate(0deg); }
-		to   { transform: rotate(360deg); }
-	}
-
-	@keyframes planet-counter {
-		from { transform: translate(-50%, -50%) rotate(0deg); }
-		to   { transform: translate(-50%, -50%) rotate(-360deg); }
-	}
 
 	@keyframes spin-slow {
 		from { transform: rotate(0deg); }
