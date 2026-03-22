@@ -210,27 +210,6 @@
 	<!-- Top separator -->
 	<div class="h-px bg-gradient-to-r from-transparent via-dark-600/60 to-transparent"></div>
 
-	<div class="py-10">
-		<p class="mb-6 text-center font-mono text-xs font-semibold uppercase tracking-[0.2em] text-dark-500">
-			Trusted by leading enterprises across Southeast Asia
-		</p>
-
-		<!-- Marquee wrapper -->
-		<div class="relative overflow-hidden">
-			<!-- Fade masks -->
-			<div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-dark-950 to-transparent"></div>
-			<div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-dark-950 to-transparent"></div>
-
-			<div class="flex w-max animate-marquee-scroll gap-4">
-				{#each marqueeLogos as logo}
-					<span class="inline-flex shrink-0 items-center rounded-full border border-dark-600 bg-dark-800 px-5 py-2.5 font-mono text-sm text-dark-300 whitespace-nowrap">
-						{logo.name}
-					</span>
-				{/each}
-			</div>
-		</div>
-	</div>
-
 	<!-- Bottom separator -->
 	<div class="h-px bg-gradient-to-r from-transparent via-dark-600/60 to-transparent"></div>
 </div>
